@@ -27,7 +27,9 @@ export function ImportPage() {
 
       <article className="panel">
         <h3>Posledné importy</h3>
-        {!runs?.length ? (
+        {runs === undefined ? (
+          <p>Načítavam importy…</p>
+        ) : !runs.length ? (
           <p>Žiadny import zatiaľ nebežal.</p>
         ) : (
           <ul className="stack-sm">

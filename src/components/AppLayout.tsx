@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom'
 
+import { isConvexEnvMissingInProd } from '../lib/convexClient'
 import { PomodoroTimer } from './PomodoroTimer'
 
 const navItems = [
@@ -12,6 +13,13 @@ const navItems = [
 export function AppLayout() {
   return (
     <div className="app-shell">
+      {isConvexEnvMissingInProd ? (
+        <article className="panel error">
+          Chýba <code>VITE_CONVEX_URL</code> v produkčnom builde. Nastav ju v Netlify a sprav
+          <strong> Clear cache and deploy site</strong>.
+        </article>
+      ) : null}
+
       <header className="top-nav">
         <div className="brand-block">
           <p className="kicker">Štátnice DAV 2026</p>
