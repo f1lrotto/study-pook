@@ -468,6 +468,7 @@ button.danger {
 }
 
 .pomodoro-widget {
+  position: relative;
   width: auto;
   max-width: min(100%, 520px);
   border: 1px solid var(--line);
@@ -475,6 +476,7 @@ button.danger {
   background: linear-gradient(170deg, rgba(255, 255, 255, 0.92), rgba(230, 242, 255, 0.9));
   box-shadow: 0 8px 22px rgba(31, 70, 120, 0.1);
   padding: 0.38rem 0.45rem;
+  overflow: visible;
 }
 
 .pomodoro-widget[data-mode='focus'] {
@@ -495,6 +497,88 @@ button.danger {
   align-items: center;
   justify-content: flex-end;
   gap: 0.4rem 0.45rem;
+}
+
+.pomodoro-notice {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  z-index: 35;
+  width: min(88vw, 320px);
+  border-radius: 12px;
+  border: 1px solid #8eb6e0;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.97), rgba(229, 241, 255, 0.95));
+  box-shadow: 0 14px 28px rgba(20, 48, 80, 0.22);
+  padding: 0.62rem 0.68rem;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.pomodoro-notice[data-kind='study_done'] {
+  border-color: #79c68f;
+  background: linear-gradient(165deg, rgba(246, 255, 250, 0.98), rgba(226, 250, 236, 0.95));
+}
+
+.pomodoro-notice[data-kind='break_done'] {
+  border-color: #9fb9dc;
+  background: linear-gradient(165deg, rgba(247, 251, 255, 0.98), rgba(230, 240, 254, 0.95));
+}
+
+.pomodoro-notice-title {
+  font-size: 0.88rem;
+  font-weight: 760;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.pomodoro-notice p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #2f4d6e;
+}
+
+.pomodoro-notice .chip {
+  justify-self: flex-start;
+  padding: 0.22rem 0.54rem;
+  font-size: 0.74rem;
+}
+
+.pomodoro-confetti {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.95rem;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 28;
+}
+
+.pomodoro-confetti-piece {
+  position: absolute;
+  width: 6px;
+  height: 11px;
+  border-radius: 2px;
+  background: hsl(var(--hue), 80%, 62%);
+  transform: rotate(var(--angle));
+  transform-origin: center;
+  animation: pomodoro-confetti-burst var(--duration) ease-out var(--delay) forwards;
+}
+
+@keyframes pomodoro-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(var(--angle)) scale(0.7);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) rotate(calc(var(--angle) + 90deg)) scale(0.92);
+  }
 }
 
 .pomodoro-mode {

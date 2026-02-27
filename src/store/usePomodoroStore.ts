@@ -2,6 +2,14 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 type PomodoroMode = 'focus' | 'short_break' | 'long_break'
+type PhaseNoticeKind = 'study_done' | 'break_done'
+
+type PhaseNotice = {
+  id: number
+  kind: PhaseNoticeKind
+  title: string
+  body: string
+}
 
 const clampMinutes = (value: number, fallback: number) => {
   if (!Number.isFinite(value)) {
@@ -61,6 +69,10 @@ type PomodoroStore = {
   phaseTotalSeconds: number
   sessionEndAt: number | null
   focusSessionsCompleted: number
+  completionCount: number
+  lastCompletedMode: PomodoroMode | null
+  lastCompletedAt: number | null
+  phaseNotice: PhaseNotice | null
   countedFocusSeconds: number
   pendingStudySeconds: number
   setDurations: (payload: {
@@ -75,6 +87,7 @@ type PomodoroStore = {
   resetCurrent: () => void
   skipPhase: () => void
   completeCurrentPhase: () => void
+  dismissPhaseNotice: () => void
   consumePendingStudySeconds: () => number
   restorePendingStudySeconds: (seconds: number) => void
 }
@@ -99,6 +112,10 @@ export const usePomodoroStore = create<PomodoroStore>()(
       phaseTotalSeconds: initialPhaseSeconds,
       sessionEndAt: null,
       focusSessionsCompleted: 0,
+      completionCount: 0,
+      lastCompletedMode: null,
+      lastCompletedAt: null,
+      phaseNotice: null,
       countedFocusSeconds: 0,
       pendingStudySeconds: 0,
 
@@ -299,11 +316,30 @@ export const usePomodoroStore = create<PomodoroStore>()(
             state.longBreakEvery,
           )
           const duration = modeDurationSeconds(state, mode)
+          const completionCount = state.completionCount + 1
+          const phaseNotice: PhaseNotice =
+            state.mode === 'focus'
+              ? {
+                  id: completionCount,
+                  kind: 'study_done',
+                  title: 'Blok štúdia dokončený',
+                  body: 'Skvelá práca. Daj si krátku pauzu a potom pokračuj.',
+                }
+              : {
+                  id: completionCount,
+                  kind: 'break_done',
+                  title: 'Pauza skončila',
+                  body: 'Poď späť do flow. Daj si mini cieľ na ďalší blok.',
+                }
 
           return {
             ...state,
             mode,
             focusSessionsCompleted: nextFocusSessionsCompleted,
+            completionCount,
+            lastCompletedMode: state.mode,
+            lastCompletedAt: now,
+            phaseNotice,
             remainingSeconds: duration,
             phaseTotalSeconds: duration,
             countedFocusSeconds: 0,
@@ -312,6 +348,12 @@ export const usePomodoroStore = create<PomodoroStore>()(
             sessionEndAt: now + duration * 1000,
           }
         }),
+
+      dismissPhaseNotice: () =>
+        set((state) => ({
+          ...state,
+          phaseNotice: null,
+        })),
 
       consumePendingStudySeconds: () => {
         let seconds = 0

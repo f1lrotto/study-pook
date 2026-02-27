@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import type { CSSProperties } from 'react'
 
 import { useMutation, useQuery } from 'convex/react'
 
@@ -11,6 +12,44 @@ const modeLabels = {
   short_break: 'Krátka pauza',
   long_break: 'Dlhá pauza',
 } as const
+
+type NoticeKind = 'study_done' | 'break_done'
+
+const playPhaseDing = (context: AudioContext, kind: NoticeKind) => {
+  const startAt = context.currentTime + 0.01
+
+  const scheduleTone = (
+    frequency: number,
+    offset: number,
+    duration: number,
+    gain = 0.08,
+    type: OscillatorType = 'sine',
+  ) => {
+    const oscillator = context.createOscillator()
+    const gainNode = context.createGain()
+
+    oscillator.type = type
+    oscillator.frequency.setValueAtTime(frequency, startAt + offset)
+    gainNode.gain.setValueAtTime(0, startAt + offset)
+    gainNode.gain.linearRampToValueAtTime(gain, startAt + offset + 0.01)
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, startAt + offset + duration)
+
+    oscillator.connect(gainNode)
+    gainNode.connect(context.destination)
+
+    oscillator.start(startAt + offset)
+    oscillator.stop(startAt + offset + duration + 0.02)
+  }
+
+  if (kind === 'study_done') {
+    scheduleTone(880, 0, 0.2, 0.09, 'triangle')
+    scheduleTone(1046, 0.16, 0.24, 0.085, 'triangle')
+    scheduleTone(1318, 0.34, 0.32, 0.08, 'sine')
+  } else {
+    scheduleTone(494, 0, 0.2, 0.075, 'sine')
+    scheduleTone(740, 0.22, 0.26, 0.075, 'sine')
+  }
+}
 
 const formatTimer = (seconds: number) => {
   const safe = Math.max(0, seconds)
@@ -50,6 +89,7 @@ export function PomodoroTimer() {
   const longBreakMinutes = usePomodoroStore((state) => state.longBreakMinutes)
   const longBreakEvery = usePomodoroStore((state) => state.longBreakEvery)
   const focusSessionsCompleted = usePomodoroStore((state) => state.focusSessionsCompleted)
+  const phaseNotice = usePomodoroStore((state) => state.phaseNotice)
   const pendingStudySeconds = usePomodoroStore((state) => state.pendingStudySeconds)
 
   const start = usePomodoroStore((state) => state.start)
@@ -59,6 +99,7 @@ export function PomodoroTimer() {
   const setMode = usePomodoroStore((state) => state.setMode)
   const setDurations = usePomodoroStore((state) => state.setDurations)
   const completeCurrentPhase = usePomodoroStore((state) => state.completeCurrentPhase)
+  const dismissPhaseNotice = usePomodoroStore((state) => state.dismissPhaseNotice)
   const consumePendingStudySeconds = usePomodoroStore((state) => state.consumePendingStudySeconds)
   const restorePendingStudySeconds = usePomodoroStore((state) => state.restorePendingStudySeconds)
 
@@ -67,6 +108,36 @@ export function PomodoroTimer() {
 
   const [now, setNow] = useState(() => Date.now())
   const isSyncingRef = useRef(false)
+  const lastPlayedNoticeIdRef = useRef<number | null>(phaseNotice?.id ?? null)
+  const audioContextRef = useRef<AudioContext | null>(null)
+
+  const ensureAudioContext = useCallback(async () => {
+    if (typeof window === 'undefined') {
+      return null
+    }
+
+    const Context =
+      window.AudioContext ??
+      (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
+
+    if (!Context) {
+      return null
+    }
+
+    if (!audioContextRef.current) {
+      audioContextRef.current = new Context()
+    }
+
+    if (audioContextRef.current.state === 'suspended') {
+      try {
+        await audioContextRef.current.resume()
+      } catch {
+        return null
+      }
+    }
+
+    return audioContextRef.current
+  }, [])
 
   useEffect(() => {
     if (!isRunning) {
@@ -83,6 +154,20 @@ export function PomodoroTimer() {
   }, [isRunning])
 
   useEffect(() => {
+    const unlockAudio = () => {
+      void ensureAudioContext()
+    }
+
+    window.addEventListener('pointerdown', unlockAudio, { once: true })
+    window.addEventListener('keydown', unlockAudio, { once: true })
+
+    return () => {
+      window.removeEventListener('pointerdown', unlockAudio)
+      window.removeEventListener('keydown', unlockAudio)
+    }
+  }, [ensureAudioContext])
+
+  useEffect(() => {
     if (!isRunning || !sessionEndAt) {
       return
     }
@@ -91,6 +176,30 @@ export function PomodoroTimer() {
       completeCurrentPhase()
     }
   }, [completeCurrentPhase, isRunning, now, sessionEndAt])
+
+  useEffect(() => {
+    if (!phaseNotice || phaseNotice.id === lastPlayedNoticeIdRef.current) {
+      return
+    }
+
+    lastPlayedNoticeIdRef.current = phaseNotice.id
+    void ensureAudioContext().then((context) => {
+      if (!context) {
+        return
+      }
+
+      playPhaseDing(context, phaseNotice.kind)
+    })
+  }, [ensureAudioContext, phaseNotice])
+
+  useEffect(() => {
+    if (!phaseNotice) {
+      return
+    }
+
+    const timeout = window.setTimeout(() => dismissPhaseNotice(), 7000)
+    return () => window.clearTimeout(timeout)
+  }, [dismissPhaseNotice, phaseNotice])
 
   useEffect(() => {
     if (!pendingStudySeconds || isSyncingRef.current) {
@@ -141,9 +250,45 @@ export function PomodoroTimer() {
   const totalWithPending =
     (studyTotal?.totalStudySeconds ?? 0) + pendingStudySeconds + liveFocusSeconds
   const cycleProgress = (focusSessionsCompleted % Math.max(2, longBreakEvery)) + 1
+  const activeBurstId = phaseNotice?.kind === 'study_done' ? phaseNotice.id : 0
+  const confettiPieces = Array.from({ length: 18 }, (_, index) => {
+    const angle = Math.round((360 / 18) * index + (index % 3) * 7)
+    const distance = 24 + (index % 6) * 10
+    const radians = (angle * Math.PI) / 180
+    const x = Number((Math.cos(radians) * distance).toFixed(2))
+    const y = Number((Math.sin(radians) * distance).toFixed(2))
+    const delay = Number((index % 5) * 0.03).toFixed(2)
+    const duration = Number(0.75 + (index % 4) * 0.11).toFixed(2)
+    const style = {
+      '--angle': `${angle}deg`,
+      '--x': `${x}px`,
+      '--y': `${y}px`,
+      '--delay': `${delay}s`,
+      '--duration': `${duration}s`,
+      '--hue': `${(index * 19) % 360}`,
+    } as CSSProperties
+
+    return { key: `${activeBurstId || 'idle'}-${index}`, style }
+  })
 
   return (
     <article className="pomodoro-widget" data-mode={mode}>
+      {phaseNotice ? (
+        <aside className="pomodoro-notice" data-kind={phaseNotice.kind} role="status">
+          <p className="pomodoro-notice-title">{phaseNotice.title}</p>
+          <p>{phaseNotice.body}</p>
+          <button className="chip" onClick={() => dismissPhaseNotice()} type="button">
+            Zavrieť
+          </button>
+        </aside>
+      ) : null}
+      {activeBurstId ? (
+        <div className="pomodoro-confetti" key={activeBurstId}>
+          {confettiPieces.map((piece) => (
+            <span className="pomodoro-confetti-piece" key={piece.key} style={piece.style} />
+          ))}
+        </div>
+      ) : null}
       <div className="pomodoro-main-row">
         <p className="pomodoro-mode">{modeLabels[mode]}</p>
         <p className="pomodoro-time">{formatTimer(displaySeconds)}</p>
