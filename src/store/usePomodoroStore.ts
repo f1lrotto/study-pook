@@ -375,6 +375,29 @@ export const usePomodoroStore = create<PomodoroStore>()(
     }),
     {
       name: 'study-companion-pomodoro',
+      partialize: (state) => ({
+        focusMinutes: state.focusMinutes,
+        shortBreakMinutes: state.shortBreakMinutes,
+        longBreakMinutes: state.longBreakMinutes,
+        longBreakEvery: state.longBreakEvery,
+        mode: state.mode,
+        remainingSeconds: state.remainingSeconds,
+        phaseTotalSeconds: state.phaseTotalSeconds,
+        focusSessionsCompleted: state.focusSessionsCompleted,
+        completionCount: state.completionCount,
+        lastCompletedMode: state.lastCompletedMode,
+        lastCompletedAt: state.lastCompletedAt,
+        countedFocusSeconds: state.countedFocusSeconds,
+        pendingStudySeconds: state.pendingStudySeconds,
+      }),
+      merge: (persistedState, currentState) => ({
+        ...currentState,
+        ...(persistedState as Partial<PomodoroStore>),
+        // Never auto-run or auto-complete phases after hydration.
+        isRunning: false,
+        sessionEndAt: null,
+        phaseNotice: null,
+      }),
     },
   ),
 )

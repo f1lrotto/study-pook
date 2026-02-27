@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="6" y1="8" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff2c9" />
+      <stop offset="1" stop-color="#ffdff1" />
+    </linearGradient>
+    <linearGradient id="pencil" x1="16" y1="44" x2="50" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd38b" />
+      <stop offset="1" stop-color="#ffb7d2" />
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#bg)" />
+
+  <rect x="13" y="18" width="38" height="30" rx="9" fill="#fffdf9" stroke="#ecdab8" stroke-width="2" />
+  <rect x="18" y="25" width="15" height="2.5" rx="1.25" fill="#f5e5c4" />
+  <rect x="18" y="31" width="12" height="2.5" rx="1.25" fill="#f5e5c4" />
+  <rect x="18" y="37" width="10" height="2.5" rx="1.25" fill="#f5e5c4" />
+
+  <g transform="rotate(-34 33 33)">
+    <rect x="24" y="29" width="23" height="8" rx="4" fill="url(#pencil)" />
+    <path d="M47 29h3.8c1.2 0 2.2.9 2.2 2s-1 2-2.2 2H47v-4Z" fill="#ff8fbf" />
+    <path d="M47 33h3.8c1.2 0 2.2.9 2.2 2s-1 2-2.2 2H47v-4Z" fill="#f56ca8" />
+    <path d="M24 29h-4l-3 4 3 4h4v-8Z" fill="#f3dcb8" />
+    <path d="M17 33h2.6L17 36v-3Z" fill="#735f52" />
+  </g>
+
+  <g transform="translate(40 14)">
+    <circle cx="5" cy="5" r="2.1" fill="#ffdb3d" />
+    <ellipse cx="5" cy="1.2" rx="1.8" ry="2.1" fill="#fff" />
+    <ellipse cx="8.8" cy="5" rx="2.1" ry="1.8" fill="#fff" />
+    <ellipse cx="5" cy="8.8" rx="1.8" ry="2.1" fill="#fff" />
+    <ellipse cx="1.2" cy="5" rx="2.1" ry="1.8" fill="#fff" />
+  </g>
+
+  <circle cx="14.5" cy="16.5" r="1.2" fill="#fff" />
+</svg>
