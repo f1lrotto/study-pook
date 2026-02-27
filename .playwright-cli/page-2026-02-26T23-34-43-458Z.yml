@@ -1,0 +1,854 @@
+- generic [ref=e3]:
+    - banner [ref=e4]:
+        - generic [ref=e5]:
+            - paragraph [ref=e6]: Štátnice DAV 2026
+            - heading "Study Companion" [level=1] [ref=e7]
+        - navigation [ref=e8]:
+            - list [ref=e9]:
+                - listitem [ref=e10]:
+                    - link "Dashboard" [ref=e11] [cursor=pointer]:
+                        - /url: /
+                - listitem [ref=e12]:
+                    - link "Topics" [ref=e13] [cursor=pointer]:
+                        - /url: /courses
+                - listitem [ref=e14]:
+                    - link "Koleso" [ref=e15] [cursor=pointer]:
+                        - /url: /wheel
+                - listitem [ref=e16]:
+                    - link "Import" [ref=e17] [cursor=pointer]:
+                        - /url: /import
+    - main [ref=e18]:
+        - generic [ref=e20]:
+            - article [ref=e21]:
+                - heading "Prehľad tém" [level=2] [ref=e22]
+                - generic [ref=e23]:
+                    - generic [ref=e24]: Filtrovať podľa názvu
+                    - searchbox "Filtrovať podľa názvu" [ref=e25]
+            - article [ref=e26]:
+                - generic [ref=e28]:
+                    - heading "Diskrétna matematika" [level=2] [ref=e29]
+                    - paragraph [ref=e30]: 15 tém zobrazených
+                    - generic [ref=e31]:
+                        - generic [ref=e32]: 0/15 prejdených
+                        - generic [ref=e33]: Confidence 0.0/5
+                        - generic [ref=e34]: 0 %
+                - list [ref=e36]:
+                    - listitem [ref=e37]:
+                        - generic [ref=e38]:
+                            - link "1. Základy matematickej logiky" [ref=e39] [cursor=pointer]:
+                                - /url: /theme/js7f3bva267k5vzveq18v3wwxd81xwnn
+                            - generic [ref=e40]:
+                                - generic [ref=e41]: Nezačaté
+                                - generic [ref=e42]: Confidence 0/5
+                        - link "Študovať" [ref=e43] [cursor=pointer]:
+                            - /url: /theme/js7f3bva267k5vzveq18v3wwxd81xwnn
+                    - listitem [ref=e44]:
+                        - generic [ref=e45]:
+                            - link "2. Matematický dôkaz" [ref=e46] [cursor=pointer]:
+                                - /url: /theme/js7dpw4wmrd1mh1k863rnw08ws81xeqe
+                            - generic [ref=e47]:
+                                - generic [ref=e48]: Nezačaté
+                                - generic [ref=e49]: Confidence 0/5
+                        - link "Študovať" [ref=e50] [cursor=pointer]:
+                            - /url: /theme/js7dpw4wmrd1mh1k863rnw08ws81xeqe
+                    - listitem [ref=e51]:
+                        - generic [ref=e52]:
+                            - link "3. Intuitívny pojem množiny" [ref=e53] [cursor=pointer]:
+                                - /url: /theme/js72wkf9gs98net8td3hwabg5581w5a8
+                            - generic [ref=e54]:
+                                - generic [ref=e55]: Nezačaté
+                                - generic [ref=e56]: Confidence 0/5
+                        - link "Študovať" [ref=e57] [cursor=pointer]:
+                            - /url: /theme/js72wkf9gs98net8td3hwabg5581w5a8
+                    - listitem [ref=e58]:
+                        - generic [ref=e59]:
+                            - link "4. Karteziánsky súčin množín" [ref=e60] [cursor=pointer]:
+                                - /url: /theme/js77nnt5sd3bgxbfd4axkxsm2181w9sk
+                            - generic [ref=e61]:
+                                - generic [ref=e62]: Nezačaté
+                                - generic [ref=e63]: Confidence 0/5
+                        - link "Študovať" [ref=e64] [cursor=pointer]:
+                            - /url: /theme/js77nnt5sd3bgxbfd4axkxsm2181w9sk
+                    - listitem [ref=e65]:
+                        - generic [ref=e66]:
+                            - link "5. Relácie" [ref=e67] [cursor=pointer]:
+                                - /url: /theme/js7ahfmsdrgtw4848zrbfexzq581xh62
+                            - generic [ref=e68]:
+                                - generic [ref=e69]: Nezačaté
+                                - generic [ref=e70]: Confidence 0/5
+                        - link "Študovať" [ref=e71] [cursor=pointer]:
+                            - /url: /theme/js7ahfmsdrgtw4848zrbfexzq581xh62
+                    - listitem [ref=e72]:
+                        - generic [ref=e73]:
+                            - link "6. Usporiadania" [ref=e74] [cursor=pointer]:
+                                - /url: /theme/js75z5n01jdc2tgan5t7y48ca981xkbr
+                            - generic [ref=e75]:
+                                - generic [ref=e76]: Nezačaté
+                                - generic [ref=e77]: Confidence 0/5
+                        - link "Študovať" [ref=e78] [cursor=pointer]:
+                            - /url: /theme/js75z5n01jdc2tgan5t7y48ca981xkbr
+                    - listitem [ref=e79]:
+                        - generic [ref=e80]:
+                            - link "7. Zobrazenia" [ref=e81] [cursor=pointer]:
+                                - /url: /theme/js7d2798jmmxn5ths0fwxr8w4n81xfsp
+                            - generic [ref=e82]:
+                                - generic [ref=e83]: Nezačaté
+                                - generic [ref=e84]: Confidence 0/5
+                        - link "Študovať" [ref=e85] [cursor=pointer]:
+                            - /url: /theme/js7d2798jmmxn5ths0fwxr8w4n81xfsp
+                    - listitem [ref=e86]:
+                        - generic [ref=e87]:
+                            - link "8. Spočítateľné a nespočítateľné množiny" [ref=e88] [cursor=pointer]:
+                                - /url: /theme/js7e2s9p7fe88tt7qa35jwrhzd81wcrk
+                            - generic [ref=e89]:
+                                - generic [ref=e90]: Nezačaté
+                                - generic [ref=e91]: Confidence 0/5
+                        - link "Študovať" [ref=e92] [cursor=pointer]:
+                            - /url: /theme/js7e2s9p7fe88tt7qa35jwrhzd81wcrk
+                    - listitem [ref=e93]:
+                        - generic [ref=e94]:
+                            - link "9. Prirodzené čísla a matematická indukcia, Dirichletov princíp" [ref=e95] [cursor=pointer]:
+                                - /url: /theme/js73xwjbvfvxbse5abekamf90581xfbe
+                            - generic [ref=e96]:
+                                - generic [ref=e97]: Nezačaté
+                                - generic [ref=e98]: Confidence 0/5
+                        - link "Študovať" [ref=e99] [cursor=pointer]:
+                            - /url: /theme/js73xwjbvfvxbse5abekamf90581xfbe
+                    - listitem [ref=e100]:
+                        - generic [ref=e101]:
+                            - link "10. Základné pravidlá kombinatorického počítania" [ref=e102] [cursor=pointer]:
+                                - /url: /theme/js7ekk4kkw2dcafh7f1gt12wnd81wgwe
+                            - generic [ref=e103]:
+                                - generic [ref=e104]: Nezačaté
+                                - generic [ref=e105]: Confidence 0/5
+                        - link "Študovať" [ref=e106] [cursor=pointer]:
+                            - /url: /theme/js7ekk4kkw2dcafh7f1gt12wnd81wgwe
+                    - listitem [ref=e107]:
+                        - generic [ref=e108]:
+                            - link "11. Variácie a enumerácia zobrazení" [ref=e109] [cursor=pointer]:
+                                - /url: /theme/js78bappdgd1qhgq3x1hcfyvrh81wary
+                            - generic [ref=e110]:
+                                - generic [ref=e111]: Nezačaté
+                                - generic [ref=e112]: Confidence 0/5
+                        - link "Študovať" [ref=e113] [cursor=pointer]:
+                            - /url: /theme/js78bappdgd1qhgq3x1hcfyvrh81wary
+                    - listitem [ref=e114]:
+                        - generic [ref=e115]:
+                            - link "12. Kombinácie a enumerácia podmnožín" [ref=e116] [cursor=pointer]:
+                                - /url: /theme/js75fh131g2hxe3hddyrw02n6x81xtn9
+                            - generic [ref=e117]:
+                                - generic [ref=e118]: Nezačaté
+                                - generic [ref=e119]: Confidence 0/5
+                        - link "Študovať" [ref=e120] [cursor=pointer]:
+                            - /url: /theme/js75fh131g2hxe3hddyrw02n6x81xtn9
+                    - listitem [ref=e121]:
+                        - generic [ref=e122]:
+                            - link "13. Binomická a polynomická veta" [ref=e123] [cursor=pointer]:
+                                - /url: /theme/js7587wjb32tgvxheyv1pg4jcs81xf0e
+                            - generic [ref=e124]:
+                                - generic [ref=e125]: Nezačaté
+                                - generic [ref=e126]: Confidence 0/5
+                        - link "Študovať" [ref=e127] [cursor=pointer]:
+                            - /url: /theme/js7587wjb32tgvxheyv1pg4jcs81xf0e
+                    - listitem [ref=e128]:
+                        - generic [ref=e129]:
+                            - link "14. Rovnosti a nerovnosti s kombinačnými číslami" [ref=e130] [cursor=pointer]:
+                                - /url: /theme/js725vvf208qn08jg9whb1hp8581w3a7
+                            - generic [ref=e131]:
+                                - generic [ref=e132]: Nezačaté
+                                - generic [ref=e133]: Confidence 0/5
+                        - link "Študovať" [ref=e134] [cursor=pointer]:
+                            - /url: /theme/js725vvf208qn08jg9whb1hp8581w3a7
+                    - listitem [ref=e135]:
+                        - generic [ref=e136]:
+                            - link "15. Princíp zapojenia a vypojenia" [ref=e137] [cursor=pointer]:
+                                - /url: /theme/js795qgt0wt14d99ed3wmbp1js81x40b
+                            - generic [ref=e138]:
+                                - generic [ref=e139]: Nezačaté
+                                - generic [ref=e140]: Confidence 0/5
+                        - link "Študovať" [ref=e141] [cursor=pointer]:
+                            - /url: /theme/js795qgt0wt14d99ed3wmbp1js81x40b
+            - article [ref=e142]:
+                - generic [ref=e144]:
+                    - heading "Matematická analýza" [level=2] [ref=e145]
+                    - paragraph [ref=e146]: 16 tém zobrazených
+                    - generic [ref=e147]:
+                        - generic [ref=e148]: 0/16 prejdených
+                        - generic [ref=e149]: Confidence 0.0/5
+                        - generic [ref=e150]: 0 %
+                - list [ref=e152]:
+                    - listitem [ref=e153]:
+                        - generic [ref=e154]:
+                            - link "1. Funkcia" [ref=e155] [cursor=pointer]:
+                                - /url: /theme/js72wmtrj5c1xhzehh0vb47gcs81wkrq
+                            - generic [ref=e156]:
+                                - generic [ref=e157]: Nezačaté
+                                - generic [ref=e158]: Confidence 0/5
+                        - link "Študovať" [ref=e159] [cursor=pointer]:
+                            - /url: /theme/js72wmtrj5c1xhzehh0vb47gcs81wkrq
+                    - listitem [ref=e160]:
+                        - generic [ref=e161]:
+                            - link "2. Limita funkcie" [ref=e162] [cursor=pointer]:
+                                - /url: /theme/js73qy0smwfmp361c5et5y120581xxss
+                            - generic [ref=e163]:
+                                - generic [ref=e164]: Nezačaté
+                                - generic [ref=e165]: Confidence 0/5
+                        - link "Študovať" [ref=e166] [cursor=pointer]:
+                            - /url: /theme/js73qy0smwfmp361c5et5y120581xxss
+                    - listitem [ref=e167]:
+                        - generic [ref=e168]:
+                            - link "3. Komplexné čísla" [ref=e169] [cursor=pointer]:
+                                - /url: /theme/js72521sank2q1crpqsxgjyt1x81xv4k
+                            - generic [ref=e170]:
+                                - generic [ref=e171]: Nezačaté
+                                - generic [ref=e172]: Confidence 0/5
+                        - link "Študovať" [ref=e173] [cursor=pointer]:
+                            - /url: /theme/js72521sank2q1crpqsxgjyt1x81xv4k
+                    - listitem [ref=e174]:
+                        - generic [ref=e175]:
+                            - link "4. Derivácia" [ref=e176] [cursor=pointer]:
+                                - /url: /theme/js750f99a54b6ma4vzpm5hsw1581w0zj
+                            - generic [ref=e177]:
+                                - generic [ref=e178]: Nezačaté
+                                - generic [ref=e179]: Confidence 0/5
+                        - link "Študovať" [ref=e180] [cursor=pointer]:
+                            - /url: /theme/js750f99a54b6ma4vzpm5hsw1581w0zj
+                    - listitem [ref=e181]:
+                        - generic [ref=e182]:
+                            - link "5. Aplikácie derivácií" [ref=e183] [cursor=pointer]:
+                                - /url: /theme/js7f1btfgh4ja9mwzdn3az2pfs81xqqm
+                            - generic [ref=e184]:
+                                - generic [ref=e185]: Nezačaté
+                                - generic [ref=e186]: Confidence 0/5
+                        - link "Študovať" [ref=e187] [cursor=pointer]:
+                            - /url: /theme/js7f1btfgh4ja9mwzdn3az2pfs81xqqm
+                    - listitem [ref=e188]:
+                        - generic [ref=e189]:
+                            - link "6. Geometria derivácií" [ref=e190] [cursor=pointer]:
+                                - /url: /theme/js7d3epffcc4qvrkrcmpw9k1gs81xwzr
+                            - generic [ref=e191]:
+                                - generic [ref=e192]: Nezačaté
+                                - generic [ref=e193]: Confidence 0/5
+                        - link "Študovať" [ref=e194] [cursor=pointer]:
+                            - /url: /theme/js7d3epffcc4qvrkrcmpw9k1gs81xwzr
+                    - listitem [ref=e195]:
+                        - generic [ref=e196]:
+                            - link "7. Neurčitý integrál" [ref=e197] [cursor=pointer]:
+                                - /url: /theme/js772mw8rn538vjrmapcb8c17181w511
+                            - generic [ref=e198]:
+                                - generic [ref=e199]: Nezačaté
+                                - generic [ref=e200]: Confidence 0/5
+                        - link "Študovať" [ref=e201] [cursor=pointer]:
+                            - /url: /theme/js772mw8rn538vjrmapcb8c17181w511
+                    - listitem [ref=e202]:
+                        - generic [ref=e203]:
+                            - link "8. Určitý (Riemannov) integrál" [ref=e204] [cursor=pointer]:
+                                - /url: /theme/js717jfn5r46g5fy94g4jkpfrn81wt5j
+                            - generic [ref=e205]:
+                                - generic [ref=e206]: Nezačaté
+                                - generic [ref=e207]: Confidence 0/5
+                        - link "Študovať" [ref=e208] [cursor=pointer]:
+                            - /url: /theme/js717jfn5r46g5fy94g4jkpfrn81wt5j
+                    - listitem [ref=e209]:
+                        - generic [ref=e210]:
+                            - link "9. Číselné postupnosti a rady" [ref=e211] [cursor=pointer]:
+                                - /url: /theme/js7brbj2td7w9t84m15wk6pamh81w3bm
+                            - generic [ref=e212]:
+                                - generic [ref=e213]: Nezačaté
+                                - generic [ref=e214]: Confidence 0/5
+                        - link "Študovať" [ref=e215] [cursor=pointer]:
+                            - /url: /theme/js7brbj2td7w9t84m15wk6pamh81w3bm
+                    - listitem [ref=e216]:
+                        - generic [ref=e217]:
+                            - link "10. Taylorov rad" [ref=e218] [cursor=pointer]:
+                                - /url: /theme/js7b4tzyf4ee2mym0g65yw3jqs81w6bk
+                            - generic [ref=e219]:
+                                - generic [ref=e220]: Nezačaté
+                                - generic [ref=e221]: Confidence 0/5
+                        - link "Študovať" [ref=e222] [cursor=pointer]:
+                            - /url: /theme/js7b4tzyf4ee2mym0g65yw3jqs81w6bk
+                    - listitem [ref=e223]:
+                        - generic [ref=e224]:
+                            - link "11. Parciálne derivácie" [ref=e225] [cursor=pointer]:
+                                - /url: /theme/js73zpwet0keh0qv4hesb8vqj181w58w
+                            - generic [ref=e226]:
+                                - generic [ref=e227]: Nezačaté
+                                - generic [ref=e228]: Confidence 0/5
+                        - link "Študovať" [ref=e229] [cursor=pointer]:
+                            - /url: /theme/js73zpwet0keh0qv4hesb8vqj181w58w
+                    - listitem [ref=e230]:
+                        - generic [ref=e231]:
+                            - link "12. Optimalizácia pomocou diferenciálneho počtu" [ref=e232] [cursor=pointer]:
+                                - /url: /theme/js75ccp0tph5yrwxjk071kst2x81wn6z
+                            - generic [ref=e233]:
+                                - generic [ref=e234]: Nezačaté
+                                - generic [ref=e235]: Confidence 0/5
+                        - link "Študovať" [ref=e236] [cursor=pointer]:
+                            - /url: /theme/js75ccp0tph5yrwxjk071kst2x81wn6z
+                    - listitem [ref=e237]:
+                        - generic [ref=e238]:
+                            - link "13. Fourierove rady" [ref=e239] [cursor=pointer]:
+                                - /url: /theme/js78wrpzeb4hps38j7ttfxcfen81wte0
+                            - generic [ref=e240]:
+                                - generic [ref=e241]: Nezačaté
+                                - generic [ref=e242]: Confidence 0/5
+                        - link "Študovať" [ref=e243] [cursor=pointer]:
+                            - /url: /theme/js78wrpzeb4hps38j7ttfxcfen81wte0
+                    - listitem [ref=e244]:
+                        - generic [ref=e245]:
+                            - link "14. Fourierova transformácia" [ref=e246] [cursor=pointer]:
+                                - /url: /theme/js7c62s25dw12592sjzs8b1mmd81wktx
+                            - generic [ref=e247]:
+                                - generic [ref=e248]: Nezačaté
+                                - generic [ref=e249]: Confidence 0/5
+                        - link "Študovať" [ref=e250] [cursor=pointer]:
+                            - /url: /theme/js7c62s25dw12592sjzs8b1mmd81wktx
+                    - listitem [ref=e251]:
+                        - generic [ref=e252]:
+                            - link "15. Dynamické systémy" [ref=e253] [cursor=pointer]:
+                                - /url: /theme/js7fxv56d98e7hr1a4yn00q60181w3d7
+                            - generic [ref=e254]:
+                                - generic [ref=e255]: Nezačaté
+                                - generic [ref=e256]: Confidence 0/5
+                        - link "Študovať" [ref=e257] [cursor=pointer]:
+                            - /url: /theme/js7fxv56d98e7hr1a4yn00q60181w3d7
+                    - listitem [ref=e258]:
+                        - generic [ref=e259]:
+                            - link "16. Obyčajné diferenciálne rovnice" [ref=e260] [cursor=pointer]:
+                                - /url: /theme/js73j7v4xwcxv4n16832mdkzdd81xa3x
+                            - generic [ref=e261]:
+                                - generic [ref=e262]: Nezačaté
+                                - generic [ref=e263]: Confidence 0/5
+                        - link "Študovať" [ref=e264] [cursor=pointer]:
+                            - /url: /theme/js73j7v4xwcxv4n16832mdkzdd81xa3x
+            - article [ref=e265]:
+                - generic [ref=e267]:
+                    - heading "Algebra" [level=2] [ref=e268]
+                    - paragraph [ref=e269]: 7 tém zobrazených
+                    - generic [ref=e270]:
+                        - generic [ref=e271]: 0/7 prejdených
+                        - generic [ref=e272]: Confidence 0.0/5
+                        - generic [ref=e273]: 0 %
+                - list [ref=e275]:
+                    - listitem [ref=e276]:
+                        - generic [ref=e277]:
+                            - link "1. Vektorové priestory [priestor, podpriestor, lineárna závislosť, báza a dimenzia, Steinitzova veta, súčty a prieniky podpriestorov, Grassmannova veta]," [ref=e278] [cursor=pointer]:
+                                - /url: /theme/js74qyawggfcypkxnr3sby0rvh81ww4w
+                            - generic [ref=e279]:
+                                - generic [ref=e280]: Nezačaté
+                                - generic [ref=e281]: Confidence 0/5
+                        - link "Študovať" [ref=e282] [cursor=pointer]:
+                            - /url: /theme/js74qyawggfcypkxnr3sby0rvh81ww4w
+                    - listitem [ref=e283]:
+                        - generic [ref=e284]:
+                            - link "2. Lineárne zobrazenia" [ref=e285] [cursor=pointer]:
+                                - /url: /theme/js781mce009cb50nff9j4yd9fx81xghp
+                            - generic [ref=e286]:
+                                - generic [ref=e287]: Nezačaté
+                                - generic [ref=e288]: Confidence 0/5
+                        - link "Študovať" [ref=e289] [cursor=pointer]:
+                            - /url: /theme/js781mce009cb50nff9j4yd9fx81xghp
+                    - listitem [ref=e290]:
+                        - generic [ref=e291]:
+                            - link "3. Matice a riešenia lineárnych rovníc" [ref=e292] [cursor=pointer]:
+                                - /url: /theme/js70vyq69mrt24htyktfa9qa5s81xhat
+                            - generic [ref=e293]:
+                                - generic [ref=e294]: Nezačaté
+                                - generic [ref=e295]: Confidence 0/5
+                        - link "Študovať" [ref=e296] [cursor=pointer]:
+                            - /url: /theme/js70vyq69mrt24htyktfa9qa5s81xhat
+                    - listitem [ref=e297]:
+                        - generic [ref=e298]:
+                            - link "4. Determinanty" [ref=e299] [cursor=pointer]:
+                                - /url: /theme/js7f4nnzjg5qrzm6yymn1vvwbd81wbqn
+                            - generic [ref=e300]:
+                                - generic [ref=e301]: Nezačaté
+                                - generic [ref=e302]: Confidence 0/5
+                        - link "Študovať" [ref=e303] [cursor=pointer]:
+                            - /url: /theme/js7f4nnzjg5qrzm6yymn1vvwbd81wbqn
+                    - listitem [ref=e304]:
+                        - generic [ref=e305]:
+                            - link "5. Podobnosť matíc" [ref=e306] [cursor=pointer]:
+                                - /url: /theme/js700shby72zgyfajr2c1f8gv181xwx6
+                            - generic [ref=e307]:
+                                - generic [ref=e308]: Nezačaté
+                                - generic [ref=e309]: Confidence 0/5
+                        - link "Študovať" [ref=e310] [cursor=pointer]:
+                            - /url: /theme/js700shby72zgyfajr2c1f8gv181xwx6
+                    - listitem [ref=e311]:
+                        - generic [ref=e312]:
+                            - link "6. Základy algebry" [ref=e313] [cursor=pointer]:
+                                - /url: /theme/js75edg48h8y0hgr02q8asvfzd81xeje
+                            - generic [ref=e314]:
+                                - generic [ref=e315]: Nezačaté
+                                - generic [ref=e316]: Confidence 0/5
+                        - link "Študovať" [ref=e317] [cursor=pointer]:
+                            - /url: /theme/js75edg48h8y0hgr02q8asvfzd81xeje
+                    - listitem [ref=e318]:
+                        - generic [ref=e319]:
+                            - link "7. Euklidovské a afinné priestory" [ref=e320] [cursor=pointer]:
+                                - /url: /theme/js7c0veq6nwyxk78ap4jqbkn0x81xp8c
+                            - generic [ref=e321]:
+                                - generic [ref=e322]: Nezačaté
+                                - generic [ref=e323]: Confidence 0/5
+                        - link "Študovať" [ref=e324] [cursor=pointer]:
+                            - /url: /theme/js7c0veq6nwyxk78ap4jqbkn0x81xp8c
+            - article [ref=e325]:
+                - generic [ref=e327]:
+                    - heading "Pravdepodobnosť a štatistika" [level=2] [ref=e328]
+                    - paragraph [ref=e329]: 12 tém zobrazených
+                    - generic [ref=e330]:
+                        - generic [ref=e331]: 0/12 prejdených
+                        - generic [ref=e332]: Confidence 0.0/5
+                        - generic [ref=e333]: 0 %
+                - list [ref=e335]:
+                    - listitem [ref=e336]:
+                        - generic [ref=e337]:
+                            - link "1. Pravdepodobnostný model" [ref=e338] [cursor=pointer]:
+                                - /url: /theme/js75pvjrmvmzjnth5szxe8b2j581wew9
+                            - generic [ref=e339]:
+                                - generic [ref=e340]: Nezačaté
+                                - generic [ref=e341]: Confidence 0/5
+                        - link "Študovať" [ref=e342] [cursor=pointer]:
+                            - /url: /theme/js75pvjrmvmzjnth5szxe8b2j581wew9
+                    - listitem [ref=e343]:
+                        - generic [ref=e344]:
+                            - link "2. Podmieňovanie a nezávislosť udalostí" [ref=e345] [cursor=pointer]:
+                                - /url: /theme/js706sdfna5x48ybq3pwdnktt981xtsx
+                            - generic [ref=e346]:
+                                - generic [ref=e347]: Nezačaté
+                                - generic [ref=e348]: Confidence 0/5
+                        - link "Študovať" [ref=e349] [cursor=pointer]:
+                            - /url: /theme/js706sdfna5x48ybq3pwdnktt981xtsx
+                    - listitem [ref=e350]:
+                        - generic [ref=e351]:
+                            - link "3. Diskrétne náhodné premenné" [ref=e352] [cursor=pointer]:
+                                - /url: /theme/js72c4mbj5zke739yyb3xhpw5h81wygf
+                            - generic [ref=e353]:
+                                - generic [ref=e354]: Nezačaté
+                                - generic [ref=e355]: Confidence 0/5
+                        - link "Študovať" [ref=e356] [cursor=pointer]:
+                            - /url: /theme/js72c4mbj5zke739yyb3xhpw5h81wygf
+                    - listitem [ref=e357]:
+                        - generic [ref=e358]:
+                            - link "4. Spojité náhodné premenné" [ref=e359] [cursor=pointer]:
+                                - /url: /theme/js74w8864mth0kpkc2zbkk879d81wj55
+                            - generic [ref=e360]:
+                                - generic [ref=e361]: Nezačaté
+                                - generic [ref=e362]: Confidence 0/5
+                        - link "Študovať" [ref=e363] [cursor=pointer]:
+                            - /url: /theme/js74w8864mth0kpkc2zbkk879d81wj55
+                    - listitem [ref=e364]:
+                        - generic [ref=e365]:
+                            - link "5. Zákon veľkých čísel a limitné vety" [ref=e366] [cursor=pointer]:
+                                - /url: /theme/js794qjh3tz7fa1kmm6fr8npgx81xkf9
+                            - generic [ref=e367]:
+                                - generic [ref=e368]: Nezačaté
+                                - generic [ref=e369]: Confidence 0/5
+                        - link "Študovať" [ref=e370] [cursor=pointer]:
+                            - /url: /theme/js794qjh3tz7fa1kmm6fr8npgx81xkf9
+                    - listitem [ref=e371]:
+                        - generic [ref=e372]:
+                            - link "6. Náhodné vektory" [ref=e373] [cursor=pointer]:
+                                - /url: /theme/js7ekgmhq8nm85e4n287jhkahx81x015
+                            - generic [ref=e374]:
+                                - generic [ref=e375]: Nezačaté
+                                - generic [ref=e376]: Confidence 0/5
+                        - link "Študovať" [ref=e377] [cursor=pointer]:
+                            - /url: /theme/js7ekgmhq8nm85e4n287jhkahx81x015
+                    - listitem [ref=e378]:
+                        - generic [ref=e379]:
+                            - link "7. Studentove t-testy pre 1 súbor, 2 súbory a párové dáta. F-test rovnosti disperzií." [ref=e380] [cursor=pointer]:
+                                - /url: /theme/js7abkxdj29g27c2v985899wdn81x0ht
+                            - generic [ref=e381]:
+                                - generic [ref=e382]: Nezačaté
+                                - generic [ref=e383]: Confidence 0/5
+                        - link "Študovať" [ref=e384] [cursor=pointer]:
+                            - /url: /theme/js7abkxdj29g27c2v985899wdn81x0ht
+                    - listitem [ref=e385]:
+                        - generic [ref=e386]:
+                            - link "8. Intervaly spoľahlivosti pre strednú hodnotu a vzťah k testom o strednej hodnote. Bonferroniho korekcia." [ref=e387] [cursor=pointer]:
+                                - /url: /theme/js7ef0mxvhxmc3gvdbhy2zs0th81xfyf
+                            - generic [ref=e388]:
+                                - generic [ref=e389]: Nezačaté
+                                - generic [ref=e390]: Confidence 0/5
+                        - link "Študovať" [ref=e391] [cursor=pointer]:
+                            - /url: /theme/js7ef0mxvhxmc3gvdbhy2zs0th81xfyf
+                    - listitem [ref=e392]:
+                        - generic [ref=e393]:
+                            - link "9. Pravdepodobnosť chyby 1. druhu. Silofunkcia testu a čo na ňu vplýva. Rovnomerne najsilnejšie testy." [ref=e394] [cursor=pointer]:
+                                - /url: /theme/js73h5h3b0tp3yp00k6yh3gdwh81w8s0
+                            - generic [ref=e395]:
+                                - generic [ref=e396]: Nezačaté
+                                - generic [ref=e397]: Confidence 0/5
+                        - link "Študovať" [ref=e398] [cursor=pointer]:
+                            - /url: /theme/js73h5h3b0tp3yp00k6yh3gdwh81w8s0
+                    - listitem [ref=e399]:
+                        - generic [ref=e400]:
+                            - link "10. Testy pomerom vierohodnosti pre jednoduché i zložené hypotézy a ich sila." [ref=e401] [cursor=pointer]:
+                                - /url: /theme/js7adb94wzxbqth6cespb5dv1h81wk1x
+                            - generic [ref=e402]:
+                                - generic [ref=e403]: Nezačaté
+                                - generic [ref=e404]: Confidence 0/5
+                        - link "Študovať" [ref=e405] [cursor=pointer]:
+                            - /url: /theme/js7adb94wzxbqth6cespb5dv1h81wk1x
+                    - listitem [ref=e406]:
+                        - generic [ref=e407]:
+                            - link "11. Meranie kvality odhadov. Cramér-Raova nerovnosť. Najlepší odhad strednej hodnoty." [ref=e408] [cursor=pointer]:
+                                - /url: /theme/js76m1sph07ca96akktfjc8axx81xxaa
+                            - generic [ref=e409]:
+                                - generic [ref=e410]: Nezačaté
+                                - generic [ref=e411]: Confidence 0/5
+                        - link "Študovať" [ref=e412] [cursor=pointer]:
+                            - /url: /theme/js76m1sph07ca96akktfjc8axx81xxaa
+                    - listitem [ref=e413]:
+                        - generic [ref=e414]:
+                            - link "12. Odhad metódou maximálnej vierohodnosti a jeho asymptotické vlastnosti. Waldov test." [ref=e415] [cursor=pointer]:
+                                - /url: /theme/js701e35vyt86qfhs8e3765dn581xphj
+                            - generic [ref=e416]:
+                                - generic [ref=e417]: Nezačaté
+                                - generic [ref=e418]: Confidence 0/5
+                        - link "Študovať" [ref=e419] [cursor=pointer]:
+                            - /url: /theme/js701e35vyt86qfhs8e3765dn581xphj
+            - article [ref=e420]:
+                - generic [ref=e422]:
+                    - heading "Tvorba a analýza algoritmov a dátových štruktúr" [level=2] [ref=e423]
+                    - paragraph [ref=e424]: 12 tém zobrazených
+                    - generic [ref=e425]:
+                        - generic [ref=e426]: 0/12 prejdených
+                        - generic [ref=e427]: Confidence 0.0/5
+                        - generic [ref=e428]: 0 %
+                - list [ref=e430]:
+                    - listitem [ref=e431]:
+                        - generic [ref=e432]:
+                            - link "1. Analýza časovej zložitosti algoritmov." [ref=e433] [cursor=pointer]:
+                                - /url: /theme/js7cbnbjx6wn9kvthmwrrcw0n181wjhj
+                            - generic [ref=e434]:
+                                - generic [ref=e435]: Nezačaté
+                                - generic [ref=e436]: Confidence 0/5
+                        - link "Študovať" [ref=e437] [cursor=pointer]:
+                            - /url: /theme/js7cbnbjx6wn9kvthmwrrcw0n181wjhj
+                    - listitem [ref=e438]:
+                        - generic [ref=e439]:
+                            - link "2. Algoritmy pre triedenie." [ref=e440] [cursor=pointer]:
+                                - /url: /theme/js79ytzk79pqxxse2zez4kf8h981wfq1
+                            - generic [ref=e441]:
+                                - generic [ref=e442]: Nezačaté
+                                - generic [ref=e443]: Confidence 0/5
+                        - link "Študovať" [ref=e444] [cursor=pointer]:
+                            - /url: /theme/js79ytzk79pqxxse2zez4kf8h981wfq1
+                    - listitem [ref=e445]:
+                        - generic [ref=e446]:
+                            - link "3. Dátové štruktúry v poli." [ref=e447] [cursor=pointer]:
+                                - /url: /theme/js75ksj9eaertnc96zag02tywn81xbp1
+                            - generic [ref=e448]:
+                                - generic [ref=e449]: Nezačaté
+                                - generic [ref=e450]: Confidence 0/5
+                        - link "Študovať" [ref=e451] [cursor=pointer]:
+                            - /url: /theme/js75ksj9eaertnc96zag02tywn81xbp1
+                    - listitem [ref=e452]:
+                        - generic [ref=e453]:
+                            - link "4. Usporiadané dátové štruktúry." [ref=e454] [cursor=pointer]:
+                                - /url: /theme/js7er0x394y31fqjtwb6qbsfhs81w3bq
+                            - generic [ref=e455]:
+                                - generic [ref=e456]: Nezačaté
+                                - generic [ref=e457]: Confidence 0/5
+                        - link "Študovať" [ref=e458] [cursor=pointer]:
+                            - /url: /theme/js7er0x394y31fqjtwb6qbsfhs81w3bq
+                    - listitem [ref=e459]:
+                        - generic [ref=e460]:
+                            - link "5. Hešovanie." [ref=e461] [cursor=pointer]:
+                                - /url: /theme/js77a7rk0kztt5h29vch4e07tx81wc6c
+                            - generic [ref=e462]:
+                                - generic [ref=e463]: Nezačaté
+                                - generic [ref=e464]: Confidence 0/5
+                        - link "Študovať" [ref=e465] [cursor=pointer]:
+                            - /url: /theme/js77a7rk0kztt5h29vch4e07tx81wc6c
+                    - listitem [ref=e466]:
+                        - generic [ref=e467]:
+                            - link "6. Základné grafové algoritmy." [ref=e468] [cursor=pointer]:
+                                - /url: /theme/js7bj9kd4dzvxxtn84f7dkb2a181x7pq
+                            - generic [ref=e469]:
+                                - generic [ref=e470]: Nezačaté
+                                - generic [ref=e471]: Confidence 0/5
+                        - link "Študovať" [ref=e472] [cursor=pointer]:
+                            - /url: /theme/js7bj9kd4dzvxxtn84f7dkb2a181x7pq
+                    - listitem [ref=e473]:
+                        - generic [ref=e474]:
+                            - link "7. Najkratšie cesty v grafe." [ref=e475] [cursor=pointer]:
+                                - /url: /theme/js7803q61pgf2pv7d4bvnewc3s81xh85
+                            - generic [ref=e476]:
+                                - generic [ref=e477]: Nezačaté
+                                - generic [ref=e478]: Confidence 0/5
+                        - link "Študovať" [ref=e479] [cursor=pointer]:
+                            - /url: /theme/js7803q61pgf2pv7d4bvnewc3s81xh85
+                    - listitem [ref=e480]:
+                        - generic [ref=e481]:
+                            - link "8. Najlacnejšia kostra grafu." [ref=e482] [cursor=pointer]:
+                                - /url: /theme/js7djt3q9zxt67mmeyr43n675s81xpn2
+                            - generic [ref=e483]:
+                                - generic [ref=e484]: Nezačaté
+                                - generic [ref=e485]: Confidence 0/5
+                        - link "Študovať" [ref=e486] [cursor=pointer]:
+                            - /url: /theme/js7djt3q9zxt67mmeyr43n675s81xpn2
+                    - listitem [ref=e487]:
+                        - generic [ref=e488]:
+                            - link "9. Násobenie matíc." [ref=e489] [cursor=pointer]:
+                                - /url: /theme/js7d1k8wemwt4bjnvsennybmqh81x76q
+                            - generic [ref=e490]:
+                                - generic [ref=e491]: Nezačaté
+                                - generic [ref=e492]: Confidence 0/5
+                        - link "Študovať" [ref=e493] [cursor=pointer]:
+                            - /url: /theme/js7d1k8wemwt4bjnvsennybmqh81x76q
+                    - listitem [ref=e494]:
+                        - generic [ref=e495]:
+                            - link "10. Dynamické programovanie" [ref=e496] [cursor=pointer]:
+                                - /url: /theme/js7dbcgpp3dhgmxqvrxszyhqpx81wf3x
+                            - generic [ref=e497]:
+                                - generic [ref=e498]: Nezačaté
+                                - generic [ref=e499]: Confidence 0/5
+                        - link "Študovať" [ref=e500] [cursor=pointer]:
+                            - /url: /theme/js7dbcgpp3dhgmxqvrxszyhqpx81wf3x
+                    - listitem [ref=e501]:
+                        - generic [ref=e502]:
+                            - link "11. Ďalšie princípy tvorby efektívnych algoritmov." [ref=e503] [cursor=pointer]:
+                                - /url: /theme/js7fp212k74vw65dks53v0y6w981xb4d
+                            - generic [ref=e504]:
+                                - generic [ref=e505]: Nezačaté
+                                - generic [ref=e506]: Confidence 0/5
+                        - link "Študovať" [ref=e507] [cursor=pointer]:
+                            - /url: /theme/js7fp212k74vw65dks53v0y6w981xb4d
+                    - listitem [ref=e508]:
+                        - generic [ref=e509]:
+                            - link "12. Algoritmy na analýzu textu." [ref=e510] [cursor=pointer]:
+                                - /url: /theme/js74g99a4w8k8xeyrc1c2qq0h581xxbf
+                            - generic [ref=e511]:
+                                - generic [ref=e512]: Nezačaté
+                                - generic [ref=e513]: Confidence 0/5
+                        - link "Študovať" [ref=e514] [cursor=pointer]:
+                            - /url: /theme/js74g99a4w8k8xeyrc1c2qq0h581xxbf
+            - article [ref=e515]:
+                - generic [ref=e517]:
+                    - heading "Lineárne programovanie a metódy voľnej optimalizácie" [level=2] [ref=e518]
+                    - paragraph [ref=e519]: 6 tém zobrazených
+                    - generic [ref=e520]:
+                        - generic [ref=e521]: 0/6 prejdených
+                        - generic [ref=e522]: Confidence 0.0/5
+                        - generic [ref=e523]: 0 %
+                - list [ref=e525]:
+                    - listitem [ref=e526]:
+                        - generic [ref=e527]:
+                            - link "1. Lineárne programovanie" [ref=e528] [cursor=pointer]:
+                                - /url: /theme/js74tbhm58gxnw7vbmamkjagxs81xmss
+                            - generic [ref=e529]:
+                                - generic [ref=e530]: Nezačaté
+                                - generic [ref=e531]: Confidence 0/5
+                        - link "Študovať" [ref=e532] [cursor=pointer]:
+                            - /url: /theme/js74tbhm58gxnw7vbmamkjagxs81xmss
+                    - listitem [ref=e533]:
+                        - generic [ref=e534]:
+                            - link "2. Metódy riešenia úloh lineárneho programovania" [ref=e535] [cursor=pointer]:
+                                - /url: /theme/js72kp782d60rnxy8r9680sgj581wer7
+                            - generic [ref=e536]:
+                                - generic [ref=e537]: Nezačaté
+                                - generic [ref=e538]: Confidence 0/5
+                        - link "Študovať" [ref=e539] [cursor=pointer]:
+                            - /url: /theme/js72kp782d60rnxy8r9680sgj581wer7
+                    - listitem [ref=e540]:
+                        - generic [ref=e541]:
+                            - link "3. Teória duality v lineárnom programovaní" [ref=e542] [cursor=pointer]:
+                                - /url: /theme/js71qxejz7vs63yv7vge95hw5h81x8cw
+                            - generic [ref=e543]:
+                                - generic [ref=e544]: Nezačaté
+                                - generic [ref=e545]: Confidence 0/5
+                        - link "Študovať" [ref=e546] [cursor=pointer]:
+                            - /url: /theme/js71qxejz7vs63yv7vge95hw5h81x8cw
+                    - listitem [ref=e547]:
+                        - generic [ref=e548]:
+                            - link "4. Gradientná metóda s optimálnym krokom – iteračná schéma, definícia smeru a optimálneho kroku, vlastnosti smerov a konvergenčné vlastnosti metódy aplikovanej na rýdzo konvexnú kvadratickú funkciu." [ref=e549] [cursor=pointer]:
+                                - /url: /theme/js7a39hpyhmzrsfhbfr745vbcd81w811
+                            - generic [ref=e550]:
+                                - generic [ref=e551]: Nezačaté
+                                - generic [ref=e552]: Confidence 0/5
+                        - link "Študovať" [ref=e553] [cursor=pointer]:
+                            - /url: /theme/js7a39hpyhmzrsfhbfr745vbcd81w811
+                    - listitem [ref=e554]:
+                        - generic [ref=e555]:
+                            - link "5. Newtonova metóda – jednorozmerný a viacrozmerný prípad, iteračná schéma a hlavná myšlienka Newtonovského smeru, konvergenčné vlastnosti metódy, nevýhody a možné modifikácie." [ref=e556] [cursor=pointer]:
+                                - /url: /theme/js7f63xpzeapg9k3j3kx1skw6181ws2p
+                            - generic [ref=e557]:
+                                - generic [ref=e558]: Nezačaté
+                                - generic [ref=e559]: Confidence 0/5
+                        - link "Študovať" [ref=e560] [cursor=pointer]:
+                            - /url: /theme/js7f63xpzeapg9k3j3kx1skw6181ws2p
+                    - listitem [ref=e561]:
+                        - generic [ref=e562]:
+                            - link "6. Kvázinewtonovské metódy – priamy a nepriamy prístup, iteračná schéma, definícia smeru a dĺžky kroku, nepriama DFP, BFGS a SR1 metóda, výhody oproti priamym metódam a Newtonovej metóde, konvergenčné vlastnosti metód aplikovaných na rýdzo konvexnú kvadratickú funkciu." [ref=e563] [cursor=pointer]:
+                                - /url: /theme/js705cz9650shsm6sx6q3gcwys81whq6
+                            - generic [ref=e564]:
+                                - generic [ref=e565]: Nezačaté
+                                - generic [ref=e566]: Confidence 0/5
+                        - link "Študovať" [ref=e567] [cursor=pointer]:
+                            - /url: /theme/js705cz9650shsm6sx6q3gcwys81whq6
+            - article [ref=e568]:
+                - generic [ref=e570]:
+                    - heading "Databázy" [level=2] [ref=e571]
+                    - paragraph [ref=e572]: 3 tém zobrazených
+                    - generic [ref=e573]:
+                        - generic [ref=e574]: 0/3 prejdených
+                        - generic [ref=e575]: Confidence 0.0/5
+                        - generic [ref=e576]: 0 %
+                - list [ref=e578]:
+                    - listitem [ref=e579]:
+                        - generic [ref=e580]:
+                            - link "1. Jazyk SQL" [ref=e581] [cursor=pointer]:
+                                - /url: /theme/js799gv20nmd5m6v334pwqmqsh81w1f4
+                            - generic [ref=e582]:
+                                - generic [ref=e583]: Nezačaté
+                                - generic [ref=e584]: Confidence 0/5
+                        - link "Študovať" [ref=e585] [cursor=pointer]:
+                            - /url: /theme/js799gv20nmd5m6v334pwqmqsh81w1f4
+                    - listitem [ref=e586]:
+                        - generic [ref=e587]:
+                            - link "2. Výpočet dotazov v relačnom modeli" [ref=e588] [cursor=pointer]:
+                                - /url: /theme/js790s0pgc2zz9av8edkt7agj981xzaf
+                            - generic [ref=e589]:
+                                - generic [ref=e590]: Nezačaté
+                                - generic [ref=e591]: Confidence 0/5
+                        - link "Študovať" [ref=e592] [cursor=pointer]:
+                            - /url: /theme/js790s0pgc2zz9av8edkt7agj981xzaf
+                    - listitem [ref=e593]:
+                        - generic [ref=e594]:
+                            - link "3. Teória navrhovania a normálne formy" [ref=e595] [cursor=pointer]:
+                                - /url: /theme/js713zx413zvx5tw3de7jwj7ts81wf93
+                            - generic [ref=e596]:
+                                - generic [ref=e597]: Nezačaté
+                                - generic [ref=e598]: Confidence 0/5
+                        - link "Študovať" [ref=e599] [cursor=pointer]:
+                            - /url: /theme/js713zx413zvx5tw3de7jwj7ts81wf93
+            - article [ref=e600]:
+                - generic [ref=e602]:
+                    - heading "Princípy dátovej vedy" [level=2] [ref=e603]
+                    - paragraph [ref=e604]: 13 tém zobrazených
+                    - generic [ref=e605]:
+                        - generic [ref=e606]: 0/13 prejdených
+                        - generic [ref=e607]: Confidence 0.0/5
+                        - generic [ref=e608]: 0 %
+                - list [ref=e610]:
+                    - listitem [ref=e611]:
+                        - generic [ref=e612]:
+                            - link "1. Metódy redukcie dimenzionality" [ref=e613] [cursor=pointer]:
+                                - /url: /theme/js7dk65m5kmvfaz6gqtzhatc5181ws9v
+                            - generic [ref=e614]:
+                                - generic [ref=e615]: Nezačaté
+                                - generic [ref=e616]: Confidence 0/5
+                        - link "Študovať" [ref=e617] [cursor=pointer]:
+                            - /url: /theme/js7dk65m5kmvfaz6gqtzhatc5181ws9v
+                    - listitem [ref=e618]:
+                        - generic [ref=e619]:
+                            - link "2. Pravdepodobnostné rozdelenia (binomické, Poissonovo, Gaussovské normálne, Paretovo - ich predpisy, kedy ich používať a aké majú vlastnosti; Erdos-Polzov a Barabasi-Albertov model náhodných grafov)." [ref=e620] [cursor=pointer]:
+                                - /url: /theme/js756qhq7zxv85b3p600jvfc2n81wj3t
+                            - generic [ref=e621]:
+                                - generic [ref=e622]: Nezačaté
+                                - generic [ref=e623]: Confidence 0/5
+                        - link "Študovať" [ref=e624] [cursor=pointer]:
+                            - /url: /theme/js756qhq7zxv85b3p600jvfc2n81wj3t
+                    - listitem [ref=e625]:
+                        - generic [ref=e626]:
+                            - link "3. Korelácia vs. kauzalita" [ref=e627] [cursor=pointer]:
+                                - /url: /theme/js73cc6f8n45pq01c9n8p5n4m581wzky
+                            - generic [ref=e628]:
+                                - generic [ref=e629]: Nezačaté
+                                - generic [ref=e630]: Confidence 0/5
+                        - link "Študovať" [ref=e631] [cursor=pointer]:
+                            - /url: /theme/js73cc6f8n45pq01c9n8p5n4m581wzky
+                    - listitem [ref=e632]:
+                        - generic [ref=e633]:
+                            - link "4. Lineárna regresia" [ref=e634] [cursor=pointer]:
+                                - /url: /theme/js79wxbd8cfh7da9brsqpaqsen81xte4
+                            - generic [ref=e635]:
+                                - generic [ref=e636]: Nezačaté
+                                - generic [ref=e637]: Confidence 0/5
+                        - link "Študovať" [ref=e638] [cursor=pointer]:
+                            - /url: /theme/js79wxbd8cfh7da9brsqpaqsen81xte4
+                    - listitem [ref=e639]:
+                        - generic [ref=e640]:
+                            - link "5. Kvalita predikčných modelov" [ref=e641] [cursor=pointer]:
+                                - /url: /theme/js7et3h6yk0r8dtx2v5xrwa9w181x5rk
+                            - generic [ref=e642]:
+                                - generic [ref=e643]: Nezačaté
+                                - generic [ref=e644]: Confidence 0/5
+                        - link "Študovať" [ref=e645] [cursor=pointer]:
+                            - /url: /theme/js7et3h6yk0r8dtx2v5xrwa9w181x5rk
+                    - listitem [ref=e646]:
+                        - generic [ref=e647]:
+                            - link "6. Zhlukovanie dát" [ref=e648] [cursor=pointer]:
+                                - /url: /theme/js74k5z55jxmjb8ys5dd922w7981x9yp
+                            - generic [ref=e649]:
+                                - generic [ref=e650]: Nezačaté
+                                - generic [ref=e651]: Confidence 0/5
+                        - link "Študovať" [ref=e652] [cursor=pointer]:
+                            - /url: /theme/js74k5z55jxmjb8ys5dd922w7981x9yp
+                    - listitem [ref=e653]:
+                        - generic [ref=e654]:
+                            - link "7. Základné metódy klasifikačnejanalýzy" [ref=e655] [cursor=pointer]:
+                                - /url: /theme/js72h7xfvrsqy744j499r7rhqs81w9bx
+                            - generic [ref=e656]:
+                                - generic [ref=e657]: Nezačaté
+                                - generic [ref=e658]: Confidence 0/5
+                        - link "Študovať" [ref=e659] [cursor=pointer]:
+                            - /url: /theme/js72h7xfvrsqy744j499r7rhqs81w9bx
+                    - listitem [ref=e660]:
+                        - generic [ref=e661]:
+                            - link "8. Základy neurónových sietí" [ref=e662] [cursor=pointer]:
+                                - /url: /theme/js7d19bame1x3egx4rkxej7jh581xsnm
+                            - generic [ref=e663]:
+                                - generic [ref=e664]: Nezačaté
+                                - generic [ref=e665]: Confidence 0/5
+                        - link "Študovať" [ref=e666] [cursor=pointer]:
+                            - /url: /theme/js7d19bame1x3egx4rkxej7jh581xsnm
+                    - listitem [ref=e667]:
+                        - generic [ref=e668]:
+                            - link "9. Pravdepodobnostné modelovanie" [ref=e669] [cursor=pointer]:
+                                - /url: /theme/js72b8dwhc3tq2crt4y4msn3eh81w1nv
+                            - generic [ref=e670]:
+                                - generic [ref=e671]: Nezačaté
+                                - generic [ref=e672]: Confidence 0/5
+                        - link "Študovať" [ref=e673] [cursor=pointer]:
+                            - /url: /theme/js72b8dwhc3tq2crt4y4msn3eh81w1nv
+                    - listitem [ref=e674]:
+                        - generic [ref=e675]:
+                            - link "10. Metódy spracovania veľkých dát" [ref=e676] [cursor=pointer]:
+                                - /url: /theme/js7b7cvhz36qyq5nvwdatvd6nn81xs3d
+                            - generic [ref=e677]:
+                                - generic [ref=e678]: Nezačaté
+                                - generic [ref=e679]: Confidence 0/5
+                        - link "Študovať" [ref=e680] [cursor=pointer]:
+                            - /url: /theme/js7b7cvhz36qyq5nvwdatvd6nn81xs3d
+                    - listitem [ref=e681]:
+                        - generic [ref=e682]:
+                            - link "11. Štatistická charakterizácia sietí" [ref=e683] [cursor=pointer]:
+                                - /url: /theme/js74mfccjsjjt2yn65vxaj4ztx81xa5q
+                            - generic [ref=e684]:
+                                - generic [ref=e685]: Nezačaté
+                                - generic [ref=e686]: Confidence 0/5
+                        - link "Študovať" [ref=e687] [cursor=pointer]:
+                            - /url: /theme/js74mfccjsjjt2yn65vxaj4ztx81xa5q
+                    - listitem [ref=e688]:
+                        - generic [ref=e689]:
+                            - link "12. Vlastnosti reálnych sietí" [ref=e690] [cursor=pointer]:
+                                - /url: /theme/js7az6jqy57k18jp6e6bca5te181w89v
+                            - generic [ref=e691]:
+                                - generic [ref=e692]: Nezačaté
+                                - generic [ref=e693]: Confidence 0/5
+                        - link "Študovať" [ref=e694] [cursor=pointer]:
+                            - /url: /theme/js7az6jqy57k18jp6e6bca5te181w89v
+                    - listitem [ref=e695]:
+                        - generic [ref=e696]:
+                            - link "13. Náhodné sieťové modely" [ref=e697] [cursor=pointer]:
+                                - /url: /theme/js76xmp4pnwe86t9t0asmn8sk981wmh4
+                            - generic [ref=e698]:
+                                - generic [ref=e699]: Nezačaté
+                                - generic [ref=e700]: Confidence 0/5
+                        - link "Študovať" [ref=e701] [cursor=pointer]:
+                            - /url: /theme/js76xmp4pnwe86t9t0asmn8sk981wmh4

@@ -1,0 +1,332 @@
+- generic [ref=e3]:
+    - banner [ref=e4]:
+        - generic [ref=e5]:
+            - paragraph [ref=e6]: Štátnice DAV 2026
+            - heading "Study Companion" [level=1] [ref=e7]
+        - navigation [ref=e8]:
+            - list [ref=e9]:
+                - listitem [ref=e10]:
+                    - link "Dashboard" [ref=e11] [cursor=pointer]:
+                        - /url: /
+                - listitem [ref=e12]:
+                    - link "Topics" [ref=e13] [cursor=pointer]:
+                        - /url: /courses
+                - listitem [ref=e14]:
+                    - link "Koleso" [ref=e15] [cursor=pointer]:
+                        - /url: /wheel
+                - listitem [ref=e16]:
+                    - link "Import" [ref=e17] [cursor=pointer]:
+                        - /url: /import
+    - main [ref=e18]:
+        - generic [ref=e1058]:
+            - article [ref=e1059]:
+                - paragraph [ref=e1060]: Diskrétna matematika
+                - generic [ref=e1061]:
+                    - heading "4. Karteziánsky súčin množín" [level=2] [ref=e1062]
+                    - button "Upraviť názov" [ref=e1063] [cursor=pointer]
+            - generic [ref=e1064]:
+                - article [ref=e1066]:
+                    - heading "Poznámky" [level=3] [ref=e1068]
+                    - list [ref=e1069]:
+                        - listitem [ref=e1070]:
+                            - generic [ref=e1071]:
+                                - generic [ref=e1325]:
+                                    - textbox [ref=e1326]: definícia usporiadanej dvojice
+                                    - generic [ref=e1327]:
+                                        - button "Uložiť" [ref=e1328] [cursor=pointer]
+                                        - button "Zrušiť" [ref=e1329] [cursor=pointer]
+                                - generic [ref=e1075]:
+                                    - paragraph [ref=e1076]: ◦ dvojica prvkov, v ktorej záleží na poradí (a,b) ≠ (b,a), ak a≠b
+                                    - button "Upraviť" [ref=e1077] [cursor=pointer]
+                                - generic [ref=e1078]:
+                                    - paragraph [ref=e1079]: • karteziánsky súčin dvoch a viacerých množín
+                                    - button "Upraviť" [ref=e1080] [cursor=pointer]
+                                - generic [ref=e1081]:
+                                    - paragraph [ref=e1082]: ◦ množina všetkých usporiadaných dvojíc (a,b), kde a ∈ A a b ∈ B
+                                    - button "Upraviť" [ref=e1083] [cursor=pointer]
+                                - generic [ref=e1084]:
+                                    - paragraph [ref=e1085]: '▪ definicia usporiadanej dvojice (a, b) je množina {{a}, {a, b}}. - Teda prvy prvok je a a druhy je b'
+                                    - button "Upraviť" [ref=e1086] [cursor=pointer]
+                                - generic [ref=e1087]:
+                                    - paragraph [ref=e1088]: '▪ A×B={(a,b) ∣ a ∈ A,b ∈ B}'
+                                    - button "Upraviť" [ref=e1089] [cursor=pointer]
+                                - generic [ref=e1090]:
+                                    - paragraph [ref=e1091]: ◦ množina všetkých usporiadaných n-tíc
+                                    - button "Upraviť" [ref=e1092] [cursor=pointer]
+                                - generic [ref=e1093]:
+                                    - paragraph [ref=e1094]: '▪ A1×A2×...×An={(a1,a2,...,an) ∣ ai ∈ Ai pre i=1,2,...,n}'
+                                    - button "Upraviť" [ref=e1095] [cursor=pointer]
+                                - generic [ref=e1096]:
+                                    - paragraph [ref=e1097]: '▪ Napríklad, ak máme množiny A = {1, 2} a B = {3, 4}, ich karteziánsky súčin A × B je {{1, 3}, {1, 4}, {2, 3}, {2, 4}}.'
+                                    - button "Upraviť" [ref=e1098] [cursor=pointer]
+                                - generic [ref=e1099]:
+                                    - paragraph [ref=e1100]: • množinové identity s karteziánskym súčinom
+                                    - button "Upraviť" [ref=e1101] [cursor=pointer]
+                                - generic [ref=e1102]:
+                                    - paragraph [ref=e1103]:
+                                        - text: ◦
+                                        - strong [ref=e1104]: 'Distributívny zákon pre karteziánsky súčin a zjednotenie:'
+                                        - text: A×(B ∪ C)=(A×B) ∪ (A×C)
+                                    - button "Upraviť" [ref=e1105] [cursor=pointer]
+                                - generic [ref=e1106]:
+                                    - paragraph [ref=e1107]:
+                                        - text: ◦
+                                        - strong [ref=e1108]: 'Distributívny zákon pre karteziánsky súčin a prienik:'
+                                        - text: A×(B∩C)=(A×B)∩(A×C)
+                                    - button "Upraviť" [ref=e1109] [cursor=pointer]
+                                - generic [ref=e1110]:
+                                    - paragraph [ref=e1111]:
+                                        - text: ◦
+                                        - strong [ref=e1112]: 'Súčin s prázdnou množinou:'
+                                        - text: A× ∅ = ∅
+                                    - button "Upraviť" [ref=e1113] [cursor=pointer]
+                                - generic [ref=e1114]:
+                                    - paragraph [ref=e1115]:
+                                        - text: ◦
+                                        - strong [ref=e1116]: 'Komutatívnosť pre karteziánsky súčin neplatí:'
+                                        - text: A×B≠B×A (vo všeobecnosti)
+                                    - button "Upraviť" [ref=e1117] [cursor=pointer]
+                                - generic [ref=e1118]:
+                                    - paragraph [ref=e1119]: • použitie karteziánskeho súčinu
+                                    - button "Upraviť" [ref=e1120] [cursor=pointer]
+                                - generic [ref=e1121]:
+                                    - paragraph [ref=e1122]:
+                                        - text: ◦
+                                        - strong [ref=e1123]: 'Relácie a funkcie:'
+                                        - text: na definovanie relácií medzi množinami.
+                                    - button "Upraviť" [ref=e1124] [cursor=pointer]
+                                - generic [ref=e1125]:
+                                    - paragraph [ref=e1126]: ▪ f:A→B je podmnožina A×B, kde každému a ∈ A priradíme práve jeden prvok b ∈ B
+                                    - button "Upraviť" [ref=e1127] [cursor=pointer]
+                                - generic [ref=e1128]:
+                                    - paragraph [ref=e1129]:
+                                        - text: ◦
+                                        - strong [ref=e1130]: 'Geometria:'
+                                        - text: na definovanie súradnicových systémov.
+                                    - button "Upraviť" [ref=e1131] [cursor=pointer]
+                                - generic [ref=e1132]:
+                                    - paragraph [ref=e1133]: ▪ R 2=R×R rovina so súradnicami (x,y).
+                                    - button "Upraviť" [ref=e1134] [cursor=pointer]
+                                - generic [ref=e1135]:
+                                    - paragraph [ref=e1136]:
+                                        - text: ◦
+                                        - strong [ref=e1137]: 'Kombinatorika:'
+                                        - text: výpočet všetkých možných kombinácií dvoch množín.
+                                    - button "Upraviť" [ref=e1138] [cursor=pointer]
+                                - generic [ref=e1139]:
+                                    - paragraph [ref=e1140]:
+                                        - text: ◦
+                                        - strong [ref=e1141]: 'Teória pravdepodobnosti:'
+                                    - button "Upraviť" [ref=e1142] [cursor=pointer]
+                                - generic [ref=e1143]:
+                                    - paragraph [ref=e1144]: ▪ V experimentoch s viacerými výsledkami predstavuje množinu všetkých možných výstupov (napr. hádzanie dvoma kockami).
+                                    - button "Upraviť" [ref=e1145] [cursor=pointer]
+                                - generic [ref=e1146]:
+                                    - paragraph [ref=e1147]: '▪ Príklad: Ak A={1,2,3,4,5,6} potom A×A obsahuje všetky možné výsledky hodu dvoma kockami.'
+                                    - button "Upraviť" [ref=e1148] [cursor=pointer]
+                                - generic [ref=e1149]:
+                                    - paragraph [ref=e1150]:
+                                        - text: ◦
+                                        - strong [ref=e1151]: 'Informatika:'
+                                        - text: modelovanie relačných databáz, kde tabuľky predstavujú karteziánsky súčin atribútov.
+                                    - button "Upraviť" [ref=e1152] [cursor=pointer]
+                                - generic [ref=e1153]:
+                                    - paragraph [ref=e1154]: • ľubovoľná podmnožina karteziánskeho súčinu. (R ⊆ A x B)
+                                    - button "Upraviť" [ref=e1155] [cursor=pointer]
+                                - generic [ref=e1156]:
+                                    - paragraph [ref=e1157]: • Binarna relacia - relacia na 2 mnozinach
+                                    - button "Upraviť" [ref=e1158] [cursor=pointer]
+                                - generic [ref=e1159]:
+                                    - paragraph [ref=e1160]:
+                                        - text: • Ak (a,b)∈R, hovoríme, že
+                                        - strong [ref=e1161]: a je v relácii s b
+                                        - text: ', zapisujeme: a R b'
+                                    - button "Upraviť" [ref=e1162] [cursor=pointer]
+                                - generic [ref=e1163]:
+                                    - paragraph [ref=e1164]: '◦ Napr. Nech A = {1, 2, 3}, B = {a, b}, potom R = {(1, a), (2, b)} je relácia z A do B.'
+                                    - button "Upraviť" [ref=e1165] [cursor=pointer]
+                                - generic [ref=e1166]:
+                                    - paragraph [ref=e1167]:
+                                        - text: •
+                                        - strong [ref=e1168]: S kladanie relácií
+                                    - button "Upraviť" [ref=e1169] [cursor=pointer]
+                                - generic [ref=e1170]:
+                                    - paragraph [ref=e1171]: ◦ operácia, ktorá kombinuje dve relácie do jednej
+                                    - button "Upraviť" [ref=e1172] [cursor=pointer]
+                                - generic [ref=e1173]:
+                                    - paragraph [ref=e1174]: '◦ Ak R ⊆ A × B a S ⊆ B × C, potom skladanie relácií S ∘ R ⊆ A × C je definované ako: S ∘ R={(a,c) ∣∃ b ∈ B,(a,b) ∈ R a (b,c) ∈ S}.'
+                                    - button "Upraviť" [ref=e1175] [cursor=pointer]
+                                - generic [ref=e1176]:
+                                    - paragraph [ref=e1177]: '▪ R={(1,2),(2,3)}, S={(2,4),(3,5)} S ∘ R={(1,4),(2,5)}'
+                                    - button "Upraviť" [ref=e1178] [cursor=pointer]
+                                - generic [ref=e1179]:
+                                    - paragraph [ref=e1180]:
+                                        - text: •
+                                        - strong [ref=e1181]: I nverzná relácia
+                                        - text: (R⁻¹ obsahuje všetky dvojice v opačnom poradí)- len pre bijekcie (surjektivna a injektivna)
+                                    - button "Upraviť" [ref=e1182] [cursor=pointer]
+                                - generic [ref=e1183]:
+                                    - paragraph [ref=e1184]: ◦ vznikne z relácie R ⊆ A × B zamenením prvkov v každej usporiadanej dvojici
+                                    - button "Upraviť" [ref=e1185] [cursor=pointer]
+                                - generic [ref=e1186]:
+                                    - paragraph [ref=e1187]: '◦ R−1={(b,a) ∣ (a,b) ∈ R}'
+                                    - button "Upraviť" [ref=e1188] [cursor=pointer]
+                                - generic [ref=e1189]:
+                                    - paragraph [ref=e1190]: • relácie na množinách - Relácia na množine A je podmnožina karteziánskeho súčinu A×A
+                                    - button "Upraviť" [ref=e1191] [cursor=pointer]
+                                - generic [ref=e1192]:
+                                    - paragraph [ref=e1193]:
+                                        - text: ◦
+                                        - strong [ref=e1194]: 'Reflexívna:'
+                                        - text: (a,a) ∈ R pre každé a ∈ A.
+                                    - button "Upraviť" [ref=e1195] [cursor=pointer]
+                                - generic [ref=e1196]:
+                                    - paragraph [ref=e1197]:
+                                        - text: ◦
+                                        - strong [ref=e1198]: 'Symetrická:'
+                                        - text: Ak (a,b) ∈ R, potom (b,a) ∈ R
+                                    - button "Upraviť" [ref=e1199] [cursor=pointer]
+                                - generic [ref=e1200]:
+                                    - paragraph [ref=e1201]:
+                                        - text: ◦
+                                        - strong [ref=e1202]: 'Antisymetrická:'
+                                        - text: Ak (a,b) ∈ R a (b,a) ∈ R, potom a=b
+                                    - button "Upraviť" [ref=e1203] [cursor=pointer]
+                                - generic [ref=e1204]:
+                                    - paragraph [ref=e1205]:
+                                        - text: ◦
+                                        - strong [ref=e1206]: 'Tranzitívna:'
+                                        - text: Ak (a,b) ∈R a (b,c) ∈ R(b, c), potom (a,c) ∈ R.
+                                    - button "Upraviť" [ref=e1207] [cursor=pointer]
+                        - listitem [ref=e1208]:
+                            - generic [ref=e1209]:
+                                - generic [ref=e1210]: 'Vlastnosť Podmienka Príklad Reflexívna ∀x ∈ A: (x, x) ∈ R „=“ (opak je ireflexivna) Symetrická (x, y) ∈ R ⇒ (y, x) ∈ R „je súrodenec“ Antisymetrická (x, y) ∈ R ∧ (y, x) ∈ R ⇒ x = y „≤“ Tranzitívna (x, y), (y, z) ∈ R ⇒ (x, z) ∈ R „<“, „=“'
+                                - button "Upraviť" [ref=e1211] [cursor=pointer]
+                        - listitem [ref=e1212]:
+                            - generic [ref=e1213]:
+                                - generic [ref=e1214]:
+                                    - paragraph [ref=e1215]:
+                                        - text: •
+                                        - strong [ref=e1216]: Relácia ekvivalencie – ak je reflexívna, symetrická, tranzitívna
+                                    - button "Upraviť" [ref=e1217] [cursor=pointer]
+                                - generic [ref=e1218]:
+                                    - paragraph [ref=e1219]:
+                                        - text: ◦ rozdeľujú množinu A na disjunktné podmnožiny nazývané
+                                        - strong [ref=e1220]: triedy ekvivalencie
+                                    - button "Upraviť" [ref=e1221] [cursor=pointer]
+                                - generic [ref=e1222]:
+                                    - paragraph [ref=e1223]: ◦ obsahuje všetky prvky y ktoré sú v relácií s x - reprezentant triedy
+                                    - button "Upraviť" [ref=e1224] [cursor=pointer]
+                                - generic [ref=e1225]:
+                                    - paragraph [ref=e1226]: ◦ podmnožiny rozkladu sú disjunktné
+                                    - button "Upraviť" [ref=e1227] [cursor=pointer]
+                                - generic [ref=e1228]:
+                                    - paragraph [ref=e1229]: '◦ napr. Rozdelíme množinu A={1,2,3,4,5,6} do tried ekvivalencie podľa zvyškov pri delení číslom 3. Pre každé číslo vypočítame zvyšok pri delení 3.'
+                                    - button "Upraviť" [ref=e1230] [cursor=pointer]
+                        - listitem [ref=e1231]:
+                            - img "image346.png" [ref=e1232]
+                        - listitem [ref=e1233]:
+                            - generic [ref=e1234]:
+                                - generic [ref=e1235]:
+                                    - paragraph [ref=e1236]:
+                                        - text: •
+                                        - strong [ref=e1237]: R ozklad množiny
+                                    - button "Upraviť" [ref=e1238] [cursor=pointer]
+                                - generic [ref=e1239]:
+                                    - paragraph [ref=e1240]: '◦ súbor jej podmnožín {A1,A2,...,An}:'
+                                    - button "Upraviť" [ref=e1241] [cursor=pointer]
+                                - generic [ref=e1242]:
+                                    - paragraph [ref=e1243]: ▪ A=A1 ∪ A2 ∪ ... ∪ An
+                                    - button "Upraviť" [ref=e1244] [cursor=pointer]
+                                - generic [ref=e1245]:
+                                    - paragraph [ref=e1246]: ▪ Ai∩Aj= ∅ pre i≠j
+                                    - button "Upraviť" [ref=e1247] [cursor=pointer]
+                                - generic [ref=e1248]:
+                                    - paragraph [ref=e1249]: ▪ Žiadna z podmnožín nie je prázdna (Ai≠ ∅ ).
+                                    - button "Upraviť" [ref=e1250] [cursor=pointer]
+                        - listitem [ref=e1251]:
+                            - img "image351.png" [ref=e1252]
+                        - listitem [ref=e1253]:
+                            - generic [ref=e1254]:
+                                - generic [ref=e1255]:
+                                    - paragraph [ref=e1256]:
+                                        - text: •
+                                        - strong [ref=e1257]: Tranzitívny uzáver relácie
+                                        - text: ': Najmenšia nadmnožina relácie R, ktorá je'
+                                        - strong [ref=e1258]: tranzitívna
+                                        - text: .
+                                    - button "Upraviť" [ref=e1259] [cursor=pointer]
+                                - generic [ref=e1260]:
+                                    - paragraph [ref=e1261]: ◦ Ak máme binárny vzťah na množine A , potom tranzitívny uzáver obsahuje všetky pôvodné dvojice (a,b) patrí do A a zároveň doplní všetky dvojice, ktoré by mali existovať kvôli tranzitivite. je to spôsob ako doplniť vzťahy ktoré z logiky vyplývajú aj keď nie sú explicitne uvedené. V praxi napríklad ak máme databázu, v ktorej máme dva vzťahy A je podriadený B a B je podriadený C, tranzitívny uzáver automaticky doplní A je podriadený C.
+                                    - button "Upraviť" [ref=e1262] [cursor=pointer]
+                                - generic [ref=e1263]:
+                                    - paragraph [ref=e1264]: ◦ Označuje sa R⁺.
+                                    - button "Upraviť" [ref=e1265] [cursor=pointer]
+                                - generic [ref=e1266]:
+                                    - paragraph [ref=e1267]: '◦ Množina A={1,2,3}'
+                                    - button "Upraviť" [ref=e1268] [cursor=pointer]
+                                - generic [ref=e1269]:
+                                    - paragraph [ref=e1270]: '◦ Relácia R={(1,2),(2,3)}'
+                                    - button "Upraviť" [ref=e1271] [cursor=pointer]
+                                - generic [ref=e1272]:
+                                    - paragraph [ref=e1273]: '◦ R+={(1,2),(2,3),(1,3)}'
+                                    - button "Upraviť" [ref=e1274] [cursor=pointer]
+                                - generic [ref=e1275]:
+                                    - paragraph [ref=e1276]:
+                                        - text: •
+                                        - strong [ref=e1277]: R eflexívno-tranzitívny uzáver
+                                        - text: '– definície : Najmenšia relácia, ktorá obsahuje R a je zároveň reflexívna aj tranzitívna.'
+                                    - button "Upraviť" [ref=e1278] [cursor=pointer]
+                                - generic [ref=e1279]:
+                                    - paragraph [ref=e1280]: • Dopĺňa tranzitívny uzáver o všetky reflexívne prvky.
+                                    - button "Upraviť" [ref=e1281] [cursor=pointer]
+                                - generic [ref=e1282]:
+                                    - paragraph [ref=e1283]: • Príklad pre databázy, ak napr máme hierarchické štruktúry v rámci databázy a chceme vyhľadať jednotlivé tímy, vedúci chce vidieť v rámci tímu aj seba samého?
+                                    - button "Upraviť" [ref=e1284] [cursor=pointer]
+                                - generic [ref=e1285]:
+                                    - paragraph [ref=e1286]:
+                                        - text: ◦ Označuje sa
+                                        - strong [ref=e1287]: R
+                                        - text: '*'
+                                    - button "Upraviť" [ref=e1288] [cursor=pointer]
+                                - generic [ref=e1289]:
+                                    - paragraph [ref=e1290]: '◦ R∗={(1,1),(1,2),(1,3),(2,2),(2,3),(3,3)}.'
+                                    - button "Upraviť" [ref=e1291] [cursor=pointer]
+                                - generic [ref=e1292]:
+                                    - paragraph [ref=e1293]:
+                                        - text: •
+                                        - strong [ref=e1294]: V lastnosti
+                                    - button "Upraviť" [ref=e1295] [cursor=pointer]
+                                - generic [ref=e1296]:
+                                    - paragraph [ref=e1297]: ◦ nie komutativne (nemozeme zamistat poradia)
+                                    - button "Upraviť" [ref=e1298] [cursor=pointer]
+                                - generic [ref=e1299]:
+                                    - paragraph [ref=e1300]: ◦ asociativne
+                                    - button "Upraviť" [ref=e1301] [cursor=pointer]
+                - complementary [ref=e1302]:
+                    - article [ref=e1303]:
+                        - generic [ref=e1304]:
+                            - heading "Subtémy zo sylabu" [level=3] [ref=e1305]
+                            - button "Upraviť" [ref=e1306] [cursor=pointer]
+                        - list [ref=e1307]:
+                            - listitem [ref=e1308]: • usporiadaná dvojica
+                            - listitem [ref=e1309]: • karteziánsky súčin dvoch a viacerých množín
+                            - listitem [ref=e1310]: • množinové identity s karteziánskym súčinom
+                            - listitem [ref=e1311]: • použitie karteziánskeho súčinu
+                    - article [ref=e1312]:
+                        - heading "Progress" [level=3] [ref=e1313]
+                        - generic [ref=e1314]:
+                            - generic [ref=e1315]: Nezačaté
+                            - generic [ref=e1316]: Confidence 0/5
+                        - generic [ref=e1317]:
+                            - generic [ref=e1318]:
+                                - generic [ref=e1319]: Stav
+                                - combobox "Stav" [ref=e1320]:
+                                    - option "Nezačaté" [selected]
+                                    - option "Rozpracované"
+                                    - option "Prejdené"
+                                    - option "Zvládnuté"
+                            - generic [ref=e1321]:
+                                - generic [ref=e1322]: Confidence
+                                - slider "Confidence" [ref=e1323]: '0'
+                        - button "Uložiť progress" [ref=e1324] [cursor=pointer]

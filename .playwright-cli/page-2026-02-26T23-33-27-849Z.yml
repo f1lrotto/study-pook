@@ -1,0 +1,52 @@
+- generic [ref=e3]:
+    - banner [ref=e4]:
+        - generic [ref=e5]:
+            - paragraph [ref=e6]: Štátnice DAV 2026
+            - heading "Study Companion" [level=1] [ref=e7]
+        - navigation [ref=e8]:
+            - list [ref=e9]:
+                - listitem [ref=e10]:
+                    - link "Dashboard" [ref=e11] [cursor=pointer]:
+                        - /url: /
+                - listitem [ref=e12]:
+                    - link "Topics" [ref=e13] [cursor=pointer]:
+                        - /url: /courses
+                - listitem [ref=e14]:
+                    - link "Koleso" [ref=e15] [cursor=pointer]:
+                        - /url: /wheel
+                - listitem [ref=e16]:
+                    - link "Import" [ref=e17] [cursor=pointer]:
+                        - /url: /import
+    - main [ref=e18]:
+        - generic [ref=e917]:
+            - article [ref=e918]:
+                - paragraph [ref=e919]: Tvorba a analýza algoritmov a dátových štruktúr
+                - heading "11. Ďalšie princípy tvorby efektívnych algoritmov." [level=2] [ref=e920]
+            - generic [ref=e921]:
+                - article [ref=e923]:
+                    - heading "Poznámky" [level=3] [ref=e924]
+                    - generic [ref=e925]: Pre túto tému zatiaľ nie sú importované poznámky.
+                - complementary [ref=e926]:
+                    - article [ref=e927]:
+                        - heading "Subtémy zo sylabu" [level=3] [ref=e928]
+                        - list [ref=e929]:
+                            - listitem [ref=e930]: • Rozdeľuj a panuj
+                            - listitem [ref=e931]: • pažravé algoritmy
+                            - listitem [ref=e932]: • voľba vhodnej dátovej štruktúry. Konkrétne príklady použitia.
+                    - article [ref=e933]:
+                        - heading "Progress" [level=3] [ref=e934]
+                        - generic [ref=e935]:
+                            - generic [ref=e936]: Rozpracované
+                            - generic [ref=e937]: Confidence 0/5
+                        - generic [ref=e938]:
+                            - generic [ref=e939]:
+                                - generic [ref=e940]: Stav
+                                - combobox "Stav" [ref=e941]:
+                                    - option "Nezačaté"
+                                    - option "Rozpracované" [selected]
+                                    - option "Prejdené"
+                                    - option "Zvládnuté"
+                            - generic [ref=e942]:
+                                - generic [ref=e943]: Confidence
+                                - slider "Confidence" [ref=e944]: '0'
+                        - button "Uložiť progress" [ref=e945] [cursor=pointer]
