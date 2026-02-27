@@ -650,6 +650,8 @@ button.danger {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
+  position: relative;
+  min-width: 0;
 }
 
 .pomodoro-controls button {
@@ -1374,6 +1376,27 @@ button.danger {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  .pomodoro-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .pomodoro-menu {
+    position: static;
+  }
+
+  .pomodoro-menu-panel {
+    right: 0;
+    left: auto;
+    width: min(100%, 360px);
+    max-width: calc(100vw - 1rem);
+    max-height: min(68vh, 420px);
+    max-height: min(68dvh, 420px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .courses-page li.row-between {
