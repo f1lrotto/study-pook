@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Companion - Last 15 Changes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #eaf4ff;
+        --surface: #f4f9ff;
+        --surface-2: #ffffff;
+        --text: #1a3656;
+        --text-dim: #5b7899;
+        --border: #c6d9ee;
+        --accent: #6aa6db;
+        --accent-soft: #dceefe;
+        --ok: #5c9f8a;
+        --warn: #c39a59;
+        --shadow: 0 14px 34px rgba(44, 89, 140, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 0%, rgba(106, 166, 219, 0.23), transparent 42%),
+          radial-gradient(circle at 100% 0%, rgba(175, 211, 245, 0.3), transparent 38%), var(--bg);
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 2.2rem 1.1rem 3rem;
+      }
+
+      .hero {
+        border: 1px solid var(--border);
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.92), rgba(229, 242, 255, 0.9));
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        padding: 1.4rem 1.3rem;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.75rem;
+        color: var(--text-dim);
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0.45rem 0 0.45rem;
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: clamp(2rem, 4.2vw, 3.15rem);
+        font-weight: 400;
+        line-height: 1.03;
+      }
+
+      .sub {
+        margin: 0;
+        color: var(--text-dim);
+        max-width: 72ch;
+      }
+
+      .stats {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.6rem;
+      }
+
+      .stat {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface-2);
+        padding: 0.72rem 0.78rem;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.24rem;
+      }
+
+      .stat span {
+        font-size: 0.82rem;
+        color: var(--text-dim);
+      }
+
+      .section {
+        margin-top: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .section-head {
+        padding: 0.95rem 1.05rem;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: 1.06rem;
+        letter-spacing: 0.01em;
+      }
+
+      .timeline {
+        position: relative;
+        padding: 1rem;
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 1.58rem;
+        top: 1rem;
+        bottom: 1rem;
+        width: 2px;
+        background: linear-gradient(180deg, var(--accent), #b5d7f4);
+      }
+
+      .item {
+        position: relative;
+        margin-left: 2.35rem;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface-2);
+        padding: 0.7rem 0.8rem;
+      }
+
+      .item::before {
+        content: '';
+        position: absolute;
+        left: -1.38rem;
+        top: 0.9rem;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 999px;
+        background: var(--accent);
+        border: 2px solid #fff;
+        box-shadow: 0 0 0 2px rgba(106, 166, 219, 0.25);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.45rem;
+        margin-bottom: 0.28rem;
+      }
+
+      .idx {
+        font-size: 0.73rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: var(--text-dim);
+      }
+
+      .tag {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--accent-soft);
+        color: #346895;
+        padding: 0.16rem 0.5rem;
+      }
+
+      .tag.warn {
+        background: #f8f1e5;
+        color: #7c6232;
+      }
+
+      .tag.ok {
+        background: #e6f4ef;
+        color: #336f5d;
+      }
+
+      .title {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 750;
+      }
+
+      .desc {
+        margin: 0.2rem 0 0;
+        color: var(--text-dim);
+        line-height: 1.48;
+        font-size: 0.92rem;
+      }
+
+      .foot {
+        margin-top: 0.8rem;
+        padding: 0.7rem 1rem;
+        border-top: 1px dashed var(--border);
+        color: var(--text-dim);
+        font-size: 0.86rem;
+        background: rgba(255, 255, 255, 0.64);
+      }
+
+      @media (max-width: 760px) {
+        .timeline::before {
+          left: 1.4rem;
+        }
+
+        .item {
+          margin-left: 2rem;
+        }
+
+        .item::before {
+          left: -1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <div class="eyebrow">Study Companion Progress Recap</div>
+        <h1>Last 15 Changes We Implemented</h1>
+        <p class="sub">
+          Latest-first summary of what has been shipped so far for your girlfriend's exam prep app.
+          This focuses on actual implemented behavior across UI, data import, editing, and study
+          flow.
+        </p>
+        <div class="stats">
+          <div class="stat"><strong>15</strong><span>Total summarized changes</span></div>
+          <div class="stat"><strong>6</strong><span>UX / layout changes</span></div>
+          <div class="stat"><strong>5</strong><span>Notes + editing changes</span></div>
+          <div class="stat"><strong>4</strong><span>Content/data model changes</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <header class="section-head">
+          <h2>Timeline (Latest First)</h2>
+        </header>
+
+        <div class="timeline">
+          <article class="item">
+            <div class="meta"><span class="idx">#1</span><span class="tag">Styling</span></div>
+            <p class="title">Rethemed app to pastel light-blue palette</p>
+            <p class="desc">
+              Global tokens + components updated (panels, badges, pills, meters, wheel, hero blocks,
+              editor chrome) for a softer blue identity.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta">
+              <span class="idx">#2</span><span class="tag">Editing</span
+              ><span class="tag ok">Rich text</span>
+            </div>
+            <p class="title">Imported text notes now edit in rich text mode</p>
+            <p class="desc">
+              Changed imported note editing from plain textarea to rich editor, preserving
+              structured roles (paragraph/list/subheading) and bold segments on save.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#3</span><span class="tag">Scope</span></div>
+            <p class="title">Removed edit controls from /courses</p>
+            <p class="desc">
+              Courses page is now read-only overview/navigation; editing remains on /theme only.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta">
+              <span class="idx">#4</span><span class="tag">Notes</span
+              ><span class="tag ok">Fallback</span>
+            </div>
+            <p class="title">Manual notes editor for themes with no imported notes</p>
+            <p class="desc">
+              When a theme has no imported notes, user can create rich notes with formatting, lists,
+              and pasted/inserted images.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#5</span><span class="tag">UX</span></div>
+            <p class="title">Changed imported-note editing to whole-block flow</p>
+            <p class="desc">
+              Instead of editing each line separately, note blocks can be edited as one coherent
+              unit.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta">
+              <span class="idx">#6</span><span class="tag">Data behavior</span
+              ><span class="tag warn">Import overwrite</span>
+            </div>
+            <p class="title">Clarified source-of-truth and re-import behavior</p>
+            <p class="desc">
+              PDF/DOCX imports replace imported note blocks by external keys; manual notes remain
+              stored and are not overwritten by import.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#7</span><span class="tag">Layout</span></div>
+            <p class="title">Increased overall app max width by ~20%</p>
+            <p class="desc">Wider reading canvas to reduce cramped layout on desktop.</p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#8</span><span class="tag">Dashboard</span></div>
+            <p class="title">Removed “Vyžaduje pozornosť” section</p>
+            <p class="desc">Dropped low-value dashboard block to simplify the main page.</p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#9</span><span class="tag">Study flow</span></div>
+            <p class="title">Added “Next theme” CTA on theme page</p>
+            <p class="desc">
+              After finishing a theme, user can jump directly to the next one in course order.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#10</span><span class="tag">Layout</span></div>
+            <p class="title">Made sidebar collapsible on /theme</p>
+            <p class="desc">
+              Subthemes + progress panel can be tucked away for distraction-free note study.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#11</span><span class="tag">Overview</span></div>
+            <p class="title">Show missing-notes indicator on /courses</p>
+            <p class="desc">Each course now signals how many themes still do not have notes.</p>
+          </article>
+
+          <article class="item">
+            <div class="meta">
+              <span class="idx">#12</span><span class="tag">Scope</span
+              ><span class="tag warn">MVP trim</span>
+            </div>
+            <p class="title">Removed flashcards feature for v1</p>
+            <p class="desc">
+              Dropped generator/review/study card flow due to quality concerns to keep MVP focused.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta">
+              <span class="idx">#13</span><span class="tag">Visual polish</span>
+            </div>
+            <p class="title">Improved emphasis + readability of key states</p>
+            <p class="desc">
+              Adjusted confidence/status visuals and typography hierarchy so progress signals are
+              easier to scan.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta"><span class="idx">#14</span><span class="tag">Typography</span></div>
+            <p class="title">Upsized and normalized section/course headers</p>
+            <p class="desc">
+              Fixed too-small headers on /theme, /courses, and main sections for stronger visual
+              hierarchy.
+            </p>
+          </article>
+
+          <article class="item">
+            <div class="meta">
+              <span class="idx">#15</span><span class="tag">Import quality</span
+              ><span class="tag ok">DOCX structure</span>
+            </div>
+            <p class="title">Preserved DOCX structure better (bullets/subheadings/images)</p>
+            <p class="desc">
+              Adjusted parsing/rendering so note flow reflects original document structure more
+              closely, including inline images without OCR.
+            </p>
+          </article>
+        </div>
+
+        <footer class="foot">
+          If you want, I can generate a second visual page with “Before vs After” screenshots by
+          area (Dashboard, Courses, Theme) for a side-by-side evolution view.
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
