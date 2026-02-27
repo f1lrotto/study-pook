@@ -62,7 +62,22 @@ The script:
 2. Upserts curriculum in Convex
 3. Parses DOCX blocks in document order
 4. Uploads embedded images to Convex storage
-5. Upserts note blocks
+5. Converts note streams to canonical markdown notes (`themeNotes`)
+6. Skips overwriting user-edited markdown notes by default
+
+## Migrate legacy notes
+
+To backfill existing `noteBlocks` and `manualNotesHtml` into canonical markdown notes:
+
+```bash
+bun run migrate:notes
+```
+
+Optional flags:
+
+- `--force` to overwrite already migrated `themeNotes`
+- `--batch=<n>` to change batch size (default `50`)
+- `--keep-legacy-data-url-images` to keep legacy embedded data URLs in migrated markdown
 
 ## Commands
 
@@ -72,4 +87,5 @@ bun run typecheck
 bun run test
 bun run format
 bun run check
+bun run migrate:notes
 ```

@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as noteMarkdown from "../noteMarkdown.js";
 import type * as study from "../study.js";
 
 import type {
@@ -17,6 +18,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  noteMarkdown: typeof noteMarkdown;
   study: typeof study;
 }>;
 

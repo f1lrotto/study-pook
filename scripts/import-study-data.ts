@@ -3,6 +3,7 @@ import { basename, join } from 'node:path'
 import { ConvexHttpClient } from 'convex/browser'
 
 import { api } from '../convex/_generated/api'
+import { noteBlocksToMarkdown } from '../convex/noteMarkdown'
 import { extractNotesFromDocx } from './import/parseDocx'
 import { extractCurriculumFromPdf } from './import/parsePdf'
 
@@ -100,31 +101,40 @@ const run = async () => {
     }
 
     let totalBlocks = 0
+    let notesUpdated = 0
+    let notesSkippedEdited = 0
 
     for (const [themeId, blocks] of notes.blocksByTheme.entries()) {
-      const payload = blocks.map((block) => ({
-        externalKey: block.externalKey,
-        order: block.order,
+      const blocksWithStorage = blocks.map((block) => ({
         kind: block.kind,
+        order: block.order,
         text: block.text,
         textRole: block.textRole,
         listLevel: block.listLevel,
-        richTextJson: block.richTextJson,
         sourceImageName: block.sourceImageName,
-        imageStorageId: block.imageTarget
-          ? (imageStorageIds.get(block.imageTarget) as never)
-          : undefined,
+        externalKey: block.externalKey,
+        imageStorageId: block.imageTarget ? imageStorageIds.get(block.imageTarget) : undefined,
       }))
 
-      await client.mutation(api.study.replaceThemeNoteBlocks, {
+      const markdown = noteBlocksToMarkdown(blocksWithStorage)
+      const storageImageIds = blocksWithStorage
+        .map((block) => block.imageStorageId ?? null)
+        .filter((id): id is string => Boolean(id))
+
+      const result = await client.mutation(api.study.replaceThemeNoteFromDocx, {
         themeId: themeId as never,
-        blocks: payload,
+        importKey,
+        markdown,
+        storageImageIds: storageImageIds as never[],
       })
 
-      totalBlocks += payload.length
+      totalBlocks += blocks.length
+      notesUpdated += result.updated ? 1 : 0
+      notesSkippedEdited += result.skippedEdited ? 1 : 0
     }
 
-    console.log(`   Saved ${totalBlocks} note blocks.`)
+    console.log(`   Parsed ${totalBlocks} note blocks into markdown notes.`)
+    console.log(`   Theme notes updated: ${notesUpdated}, skipped edited: ${notesSkippedEdited}.`)
 
     const elapsedSec = ((Date.now() - startedAt) / 1000).toFixed(1)
 
@@ -135,7 +145,9 @@ const run = async () => {
         courses: curriculum.courses.length,
         themes: curriculumResult.themes,
         noteThemes: notes.blocksByTheme.size,
-        noteBlocks: totalBlocks,
+        noteBlocksParsed: totalBlocks,
+        notesUpdated,
+        notesSkippedEdited,
         uploadedImages: imageStorageIds.size,
         elapsedSec,
       }),

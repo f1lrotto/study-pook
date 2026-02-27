@@ -826,27 +826,79 @@ button.danger {
 .rich-editor {
   border: 1px solid var(--line);
   border-radius: 14px;
-  overflow: hidden;
+  overflow: visible;
   background: #fff;
+  position: relative;
 }
 
 .rich-editor-toolbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: 0.35rem;
-  padding: 0.55rem;
+  padding: 0.5rem 0.55rem;
   border-bottom: 1px solid var(--line);
   background: #eaf3fd;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 2px 8px rgba(18, 47, 79, 0.12);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rich-editor-toolbar::-webkit-scrollbar {
+  height: 7px;
+}
+
+.rich-editor-toolbar::-webkit-scrollbar-thumb {
+  background: #b5cce5;
+  border-radius: 999px;
+}
+
+.rich-editor-toolbar-group {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0.3rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rich-editor-toolbar-separator {
+  flex-shrink: 0;
+  width: 1px;
+  height: 1.55rem;
+  background: #b8cee6;
+  border-radius: 999px;
 }
 
 .rich-editor-tool {
   border: 1px solid #bdd1e7;
   border-radius: 8px;
-  padding: 0.28rem 0.56rem;
+  padding: 0.26rem 0.5rem;
   background: white;
   color: #35587f;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 650;
+  white-space: nowrap;
+  line-height: 1.15;
+}
+
+.rich-editor-tool-icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rich-editor-tool-icon svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 .rich-editor-tool.is-active {
@@ -911,6 +963,61 @@ button.danger {
   max-width: 100%;
   border-radius: 8px;
   margin: 0.65rem 0;
+}
+
+.rich-editor-content .ProseMirror code,
+.manual-notes-view code {
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.9em;
+  padding: 0.08rem 0.32rem;
+  border-radius: 6px;
+  background: #edf2f8;
+  color: #1f3d61;
+}
+
+.rich-editor-content .ProseMirror pre,
+.manual-notes-view pre {
+  margin: 0.65rem 0;
+  padding: 0.72rem 0.82rem;
+  border-radius: 10px;
+  background: #1f2f40;
+  color: #e4efff;
+  overflow-x: auto;
+}
+
+.rich-editor-content .ProseMirror pre code,
+.manual-notes-view pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.rich-editor-content .ProseMirror hr,
+.manual-notes-view hr {
+  border: 0;
+  border-top: 1px solid #c6d8ea;
+  margin: 0.95rem 0;
+}
+
+.rich-editor-content .ProseMirror table,
+.manual-notes-view table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+}
+
+.rich-editor-content .ProseMirror th,
+.rich-editor-content .ProseMirror td,
+.manual-notes-view th,
+.manual-notes-view td {
+  border: 1px solid #c6d8ea;
+  padding: 0.38rem 0.45rem;
+  vertical-align: top;
+}
+
+.rich-editor-content .ProseMirror th,
+.manual-notes-view th {
+  background: #f2f7fd;
 }
 
 .rich-editor-content .ProseMirror p.is-editor-empty:first-child::before {

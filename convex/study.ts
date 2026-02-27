@@ -1,6 +1,13 @@
 import { ConvexError, v } from 'convex/values'
 
 import { mutation, query, type MutationCtx, type QueryCtx } from './_generated/server'
+import {
+  extractStorageImageIds,
+  hasMeaningfulMarkdown,
+  legacyManualHtmlToMarkdown,
+  markdownToStorageImageMap,
+  noteBlocksToMarkdown,
+} from './noteMarkdown'
 
 const progressStatusValues = ['not_started', 'in_progress', 'reviewed', 'mastered'] as const
 
@@ -16,6 +23,8 @@ const noteTextRoleValidator = v.union(
   v.literal('list_item'),
   v.literal('subheading'),
 )
+
+const themeNoteFormatVersion = 1
 
 const normalizeText = (value: string) =>
   value
@@ -111,6 +120,8 @@ const ensureThemeExists = async (ctx: MutationCtx, themeId: string) => {
   if (!theme || !('title' in theme)) {
     throw new ConvexError('Neplatná téma')
   }
+
+  return theme
 }
 
 const removeThemeData = async (ctx: MutationCtx, themeId: string) => {
@@ -126,6 +137,66 @@ const removeThemeData = async (ctx: MutationCtx, themeId: string) => {
   const progress = await ctx.db.query('progress').collect()
   for (const row of progress.filter((row) => row.themeId === themeId)) {
     await ctx.db.delete(row._id)
+  }
+
+  const themeNote = await getThemeNoteByThemeId(ctx, themeId)
+  if (themeNote) {
+    await ctx.db.delete(themeNote._id)
+  }
+}
+
+const normalizeMarkdownValue = (value: string) =>
+  value
+    .replace(/\r\n/g, '\n')
+    .replace(/[ \t]+$/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+
+const getThemeNoteByThemeId = async (ctx: QueryCtx | MutationCtx, themeId: string) =>
+  ctx.db
+    .query('themeNotes')
+    .withIndex('by_theme_id', (q) => q.eq('themeId', themeId as never))
+    .first()
+
+const resolveThemeNoteStorageIds = (markdown: string, additionalStorageIds?: string[]) => [
+  ...new Set([
+    ...extractStorageImageIds(markdown),
+    ...(additionalStorageIds ?? []).filter(Boolean),
+  ]),
+]
+
+const buildThemeNotePatch = (args: {
+  themeId: string
+  markdown: string
+  source:
+    | 'import_docx'
+    | 'user_edit'
+    | 'markdown_file_import'
+    | 'legacy_note_blocks'
+    | 'legacy_manual_html'
+    | 'empty'
+  storageImageIds?: string[]
+  userEditedAt?: number | null
+  lastImportedAt?: number | null
+  lastImportKey?: string | null
+  legacyMigratedAt?: number | null
+  legacyDroppedImageCount?: number | null
+}) => {
+  const markdown = normalizeMarkdownValue(args.markdown)
+  const storageImageIds = resolveThemeNoteStorageIds(markdown, args.storageImageIds)
+
+  return {
+    themeId: args.themeId as never,
+    markdown,
+    formatVersion: themeNoteFormatVersion,
+    source: args.source,
+    storageImageIds: storageImageIds.map((id) => id as never),
+    userEditedAt: args.userEditedAt === null ? undefined : args.userEditedAt,
+    lastImportedAt: args.lastImportedAt === null ? undefined : args.lastImportedAt,
+    lastImportKey: args.lastImportKey === null ? undefined : args.lastImportKey,
+    legacyMigratedAt: args.legacyMigratedAt === null ? undefined : args.legacyMigratedAt,
+    legacyDroppedImageCount:
+      args.legacyDroppedImageCount === null ? undefined : args.legacyDroppedImageCount,
   }
 }
 
@@ -174,23 +245,20 @@ export const listThemes = query({
 
     const courses = await ctx.db.query('courses').collect()
     const courseById = new Map(courses.map((course) => [course._id, course]))
-    const noteBlocks = await ctx.db.query('noteBlocks').collect()
-    const themesWithStudyNotes = new Set(noteBlocks.map((block) => block.themeId))
-    const themesWithEditedImportedNotes = new Set(
-      noteBlocks.filter((block) => Boolean(block.userEditedAt)).map((block) => block.themeId),
-    )
+    const themeNotes = await ctx.db.query('themeNotes').collect()
+    const themeNotesByThemeId = new Map(themeNotes.map((note) => [note.themeId, note]))
 
     const progressMap = args.userKey ? await firstProgressByTheme(ctx, args.userKey) : new Map()
 
     return filteredThemes
       .sort((a, b) => a.order - b.order)
       .map((theme) => ({
+        themeNote: themeNotesByThemeId.get(theme._id) ?? null,
         ...theme,
         course: courseById.get(theme.courseId),
         progress: progressMap.get(theme._id) ?? null,
-        hasStudyNotes: themesWithStudyNotes.has(theme._id),
-        hasUserEditedNotes:
-          themesWithEditedImportedNotes.has(theme._id) || Boolean(theme.manualNotesUpdatedAt),
+        hasStudyNotes: hasMeaningfulMarkdown(themeNotesByThemeId.get(theme._id)?.markdown ?? ''),
+        hasUserEditedNotes: Boolean(themeNotesByThemeId.get(theme._id)?.userEditedAt),
       }))
   },
 })
@@ -217,31 +285,23 @@ export const getTheme = query({
           .first()
       : null
 
-    const noteBlocks = await ctx.db
-      .query('noteBlocks')
-      .withIndex('by_theme_order', (q) => q.eq('themeId', theme._id))
-      .collect()
+    const themeNote = await getThemeNoteByThemeId(ctx, theme._id)
 
-    const hydratedBlocks = await Promise.all(
-      noteBlocks.map(async (block) => {
-        if (block.kind !== 'image' || !block.imageStorageId) {
-          return block
-        }
-
-        const imageUrl =
-          block.imageUrl ?? (await ctx.storage.getUrl(block.imageStorageId)) ?? undefined
-        return {
-          ...block,
-          imageUrl,
-        }
-      }),
+    const imageUrlMap = await markdownToStorageImageMap(themeNote?.markdown ?? '', (storageId) =>
+      ctx.storage.getUrl(storageId as never),
     )
 
     return {
       theme,
       course,
       progress,
-      noteBlocks: hydratedBlocks.sort((a, b) => a.order - b.order),
+      themeNote: {
+        markdown: themeNote?.markdown ?? '',
+        updatedAt: themeNote?.updatedAt ?? null,
+        userEditedAt: themeNote?.userEditedAt ?? null,
+        source: themeNote?.source ?? 'empty',
+        imageUrlMap,
+      },
     }
   },
 })
@@ -490,6 +550,56 @@ const hasMeaningfulManualNotes = (html: string) => {
     : false
 }
 
+const upsertThemeNote = async (
+  ctx: MutationCtx,
+  args: {
+    themeId: string
+    markdown: string
+    source:
+      | 'import_docx'
+      | 'user_edit'
+      | 'markdown_file_import'
+      | 'legacy_note_blocks'
+      | 'legacy_manual_html'
+      | 'empty'
+    storageImageIds?: string[]
+    userEditedAt?: number | null
+    lastImportedAt?: number | null
+    lastImportKey?: string | null
+    legacyMigratedAt?: number | null
+    legacyDroppedImageCount?: number | null
+  },
+) => {
+  const now = Date.now()
+  const existing = await getThemeNoteByThemeId(ctx, args.themeId)
+  const patch = buildThemeNotePatch(args)
+
+  if (existing) {
+    await ctx.db.patch(existing._id, {
+      ...patch,
+      updatedAt: now,
+      userEditedAt: 'userEditedAt' in args ? patch.userEditedAt : existing.userEditedAt,
+      lastImportedAt: 'lastImportedAt' in args ? patch.lastImportedAt : existing.lastImportedAt,
+      lastImportKey: 'lastImportKey' in args ? patch.lastImportKey : existing.lastImportKey,
+      legacyMigratedAt:
+        'legacyMigratedAt' in args ? patch.legacyMigratedAt : existing.legacyMigratedAt,
+      legacyDroppedImageCount:
+        'legacyDroppedImageCount' in args
+          ? patch.legacyDroppedImageCount
+          : existing.legacyDroppedImageCount,
+    })
+    return await ctx.db.get(existing._id)
+  }
+
+  const insertedId = await ctx.db.insert('themeNotes', {
+    ...patch,
+    createdAt: now,
+    updatedAt: now,
+  })
+
+  return await ctx.db.get(insertedId)
+}
+
 export const updateCourseTitle = mutation({
   args: {
     courseId: v.id('courses'),
@@ -625,6 +735,208 @@ export const saveThemeManualNotes = mutation({
     })
 
     return await ctx.db.get(args.themeId)
+  },
+})
+
+export const saveThemeNoteMarkdown = mutation({
+  args: {
+    themeId: v.id('themes'),
+    markdown: v.string(),
+  },
+  handler: async (ctx, args) => {
+    await ensureThemeExists(ctx, args.themeId)
+
+    const markdown = normalizeMarkdownValue(args.markdown)
+    const isMeaningful = hasMeaningfulMarkdown(markdown)
+
+    return await upsertThemeNote(ctx, {
+      themeId: args.themeId,
+      markdown,
+      source: isMeaningful ? 'user_edit' : 'empty',
+      userEditedAt: isMeaningful ? Date.now() : null,
+    })
+  },
+})
+
+export const importThemeNoteMarkdown = mutation({
+  args: {
+    themeId: v.id('themes'),
+    expectedThemeSlug: v.string(),
+    markdown: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const theme = await ensureThemeExists(ctx, args.themeId)
+    if (theme.slug !== args.expectedThemeSlug) {
+      throw new ConvexError('Súbor poznámky nepatrí k tejto téme')
+    }
+
+    const markdown = normalizeMarkdownValue(args.markdown)
+    const isMeaningful = hasMeaningfulMarkdown(markdown)
+
+    return await upsertThemeNote(ctx, {
+      themeId: args.themeId,
+      markdown,
+      source: isMeaningful ? 'markdown_file_import' : 'empty',
+      userEditedAt: isMeaningful ? Date.now() : null,
+    })
+  },
+})
+
+export const replaceThemeNoteFromDocx = mutation({
+  args: {
+    themeId: v.id('themes'),
+    importKey: v.string(),
+    markdown: v.string(),
+    storageImageIds: v.array(v.id('_storage')),
+    force: v.optional(v.boolean()),
+  },
+  handler: async (ctx, args) => {
+    await ensureThemeExists(ctx, args.themeId)
+
+    const existing = await getThemeNoteByThemeId(ctx, args.themeId)
+    if (existing?.userEditedAt && !args.force) {
+      return {
+        themeId: args.themeId,
+        updated: false,
+        skippedEdited: true,
+      }
+    }
+
+    const markdown = normalizeMarkdownValue(args.markdown)
+    const isMeaningful = hasMeaningfulMarkdown(markdown)
+
+    await upsertThemeNote(ctx, {
+      themeId: args.themeId,
+      markdown,
+      source: isMeaningful ? 'import_docx' : 'empty',
+      storageImageIds: args.storageImageIds as unknown as string[],
+      userEditedAt: null,
+      lastImportedAt: Date.now(),
+      lastImportKey: args.importKey,
+    })
+
+    return {
+      themeId: args.themeId,
+      updated: true,
+      skippedEdited: false,
+    }
+  },
+})
+
+export const notesMigrationStatus = query({
+  args: {},
+  handler: async (ctx) => {
+    const themes = await ctx.db.query('themes').collect()
+    const notes = await ctx.db.query('themeNotes').collect()
+    const noteThemeIds = new Set(notes.map((note) => note.themeId))
+
+    return {
+      themeCount: themes.length,
+      themeNoteCount: notes.length,
+      missingThemeNotes: themes.filter((theme) => !noteThemeIds.has(theme._id)).length,
+      migratedThemeNotes: notes.filter((note) => Boolean(note.legacyMigratedAt)).length,
+      userEditedThemeNotes: notes.filter((note) => Boolean(note.userEditedAt)).length,
+    }
+  },
+})
+
+export const migrateThemeNotesBatch = mutation({
+  args: {
+    cursor: v.optional(v.number()),
+    limit: v.optional(v.number()),
+    dropLegacyDataUrlImages: v.optional(v.boolean()),
+    force: v.optional(v.boolean()),
+  },
+  handler: async (ctx, args) => {
+    const themes = (await ctx.db.query('themes').collect()).sort((a, b) => a.order - b.order)
+    const start = Math.max(0, Math.floor(args.cursor ?? 0))
+    const limit = Math.max(1, Math.min(100, Math.floor(args.limit ?? 50)))
+    const batch = themes.slice(start, start + limit)
+    const dropLegacyDataUrlImages = args.dropLegacyDataUrlImages ?? true
+    const legacyMigratedAt = Date.now()
+
+    let created = 0
+    let updated = 0
+    let skippedExisting = 0
+
+    for (const theme of batch) {
+      const existingThemeNote = await getThemeNoteByThemeId(ctx, theme._id)
+      if (existingThemeNote && !args.force) {
+        skippedExisting += 1
+        continue
+      }
+
+      const noteBlocks = await ctx.db
+        .query('noteBlocks')
+        .withIndex('by_theme_order', (q) => q.eq('themeId', theme._id))
+        .collect()
+
+      const blocksToConvert = noteBlocks.map((block) => ({
+        kind: block.kind,
+        order: block.order,
+        text: block.text,
+        textRole: block.textRole,
+        listLevel: block.listLevel,
+        sourceImageName: block.sourceImageName,
+        externalKey: block.externalKey,
+        imageStorageId: block.imageStorageId ? String(block.imageStorageId) : undefined,
+      }))
+
+      const markdownFromBlocks = noteBlocksToMarkdown(blocksToConvert)
+      const hasBlocks = hasMeaningfulMarkdown(markdownFromBlocks)
+
+      const fromManualHtml =
+        !hasBlocks && hasMeaningfulManualNotes(theme.manualNotesHtml ?? '')
+          ? legacyManualHtmlToMarkdown(theme.manualNotesHtml ?? '', dropLegacyDataUrlImages)
+          : { markdown: '', droppedImageCount: 0 }
+
+      const markdown = hasBlocks ? markdownFromBlocks : fromManualHtml.markdown
+      const source = hasBlocks
+        ? 'legacy_note_blocks'
+        : hasMeaningfulMarkdown(markdown)
+          ? 'legacy_manual_html'
+          : 'empty'
+
+      const storageImageIds = hasBlocks
+        ? noteBlocks
+            .map((block) => (block.imageStorageId ? String(block.imageStorageId) : null))
+            .filter((id): id is string => Boolean(id))
+        : extractStorageImageIds(markdown)
+
+      const latestBlockEditAt = noteBlocks.reduce(
+        (latest, block) => Math.max(latest, block.userEditedAt ?? 0),
+        0,
+      )
+      const legacyEditedAt = Math.max(latestBlockEditAt, theme.manualNotesUpdatedAt ?? 0)
+
+      await upsertThemeNote(ctx, {
+        themeId: theme._id,
+        markdown,
+        source,
+        storageImageIds,
+        userEditedAt: legacyEditedAt ? legacyEditedAt : null,
+        legacyMigratedAt,
+        legacyDroppedImageCount: fromManualHtml.droppedImageCount || null,
+      })
+
+      if (existingThemeNote) {
+        updated += 1
+      } else {
+        created += 1
+      }
+    }
+
+    const nextCursor = start + batch.length
+
+    return {
+      processed: batch.length,
+      created,
+      updated,
+      skippedExisting,
+      nextCursor: nextCursor >= themes.length ? null : nextCursor,
+      done: nextCursor >= themes.length,
+      totalThemes: themes.length,
+    }
   },
 })
 

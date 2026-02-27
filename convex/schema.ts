@@ -14,6 +14,15 @@ const noteTextRole = v.union(
   v.literal('subheading'),
 )
 
+const themeNoteSource = v.union(
+  v.literal('import_docx'),
+  v.literal('user_edit'),
+  v.literal('markdown_file_import'),
+  v.literal('legacy_note_blocks'),
+  v.literal('legacy_manual_html'),
+  v.literal('empty'),
+)
+
 export default defineSchema({
   courses: defineTable({
     slug: v.string(),
@@ -55,6 +64,23 @@ export default defineSchema({
   })
     .index('by_theme_order', ['themeId', 'order'])
     .index('by_theme_external_key', ['themeId', 'externalKey']),
+
+  themeNotes: defineTable({
+    themeId: v.id('themes'),
+    markdown: v.string(),
+    formatVersion: v.number(),
+    source: themeNoteSource,
+    storageImageIds: v.array(v.id('_storage')),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+    userEditedAt: v.optional(v.number()),
+    lastImportedAt: v.optional(v.number()),
+    lastImportKey: v.optional(v.string()),
+    legacyMigratedAt: v.optional(v.number()),
+    legacyDroppedImageCount: v.optional(v.number()),
+  })
+    .index('by_theme_id', ['themeId'])
+    .index('by_updated_at', ['updatedAt']),
 
   progress: defineTable({
     userKey: v.string(),
