@@ -240,6 +240,20 @@ button.danger {
   gap: 0.8rem;
 }
 
+.panel > h2 {
+  font-size: clamp(1.9rem, 3vw, 2.35rem);
+  line-height: 1.06;
+  letter-spacing: 0.01em;
+  color: #1a3553;
+}
+
+.panel > h3 {
+  font-size: clamp(1.34rem, 2.2vw, 1.72rem);
+  line-height: 1.14;
+  letter-spacing: 0.008em;
+  color: #1f3a59;
+}
+
 .panel.muted {
   color: var(--muted);
 }
@@ -945,6 +959,13 @@ button.danger {
   color: #4e6480;
 }
 
+.rich-editor-content .ProseMirror h1,
+.manual-notes-view h1 {
+  font-size: clamp(1.5rem, 1.4rem + 0.45vw, 1.85rem);
+  line-height: 1.2;
+  margin: 0.24rem 0 0.62rem;
+}
+
 .rich-editor-content .ProseMirror h2,
 .manual-notes-view h2 {
   font-size: 1.35rem;
@@ -1314,5 +1335,13 @@ button.danger {
 
   .dashboard-page .panel h3 {
     font-size: clamp(1.08rem, 5vw, 1.28rem);
+  }
+
+  .panel > h2 {
+    font-size: clamp(1.5rem, 8vw, 1.95rem);
+  }
+
+  .panel > h3 {
+    font-size: clamp(1.15rem, 5.5vw, 1.45rem);
   }
 }
