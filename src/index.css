@@ -169,14 +169,19 @@ button.danger {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   border-radius: 999px;
   padding: 0.4rem 0.8rem;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
 }
 
 .nav-link-active {
@@ -292,6 +297,9 @@ button.danger {
 }
 
 .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
   border: 1px solid #c5d9ed;
   padding: 0.22rem 0.68rem;
@@ -300,6 +308,8 @@ button.danger {
   letter-spacing: 0.015em;
   background: #edf5ff;
   color: #315f8e;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badge-completion {
@@ -335,6 +345,8 @@ button.danger {
   font-size: 0.78rem;
   font-weight: 680;
   letter-spacing: 0.015em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .status-pill {
@@ -384,6 +396,8 @@ button.danger {
   letter-spacing: 0.015em;
   background: #eef4fd;
   color: #4e7298;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .notes-edited-pill {
@@ -397,6 +411,8 @@ button.danger {
   letter-spacing: 0.015em;
   background: #e0f4e7;
   color: #2a6c40;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .confidence-pill {
@@ -469,11 +485,15 @@ button.danger {
 }
 
 .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: white;
   color: var(--ink);
   padding: 0.35rem 0.65rem;
+  white-space: nowrap;
 }
 
 .chip-active {
@@ -483,8 +503,7 @@ button.danger {
 
 .pomodoro-widget {
   position: relative;
-  width: auto;
-  max-width: min(100%, 520px);
+  width: min(100%, 520px);
   border: 1px solid var(--line);
   border-radius: 12px;
   background: linear-gradient(170deg, rgba(255, 255, 255, 0.92), rgba(230, 242, 255, 0.9));
@@ -511,6 +530,7 @@ button.danger {
   align-items: center;
   justify-content: flex-end;
   gap: 0.4rem 0.45rem;
+  min-width: 0;
 }
 
 .pomodoro-notice {
@@ -605,12 +625,14 @@ button.danger {
   border-radius: 999px;
   padding: 0.16rem 0.46rem;
   background: #edf4fd;
+  white-space: nowrap;
 }
 
 .pomodoro-total {
   font-size: 0.72rem;
   color: #4f6f90;
   font-weight: 650;
+  white-space: nowrap;
 }
 
 .pomodoro-time {
@@ -625,6 +647,7 @@ button.danger {
 
 .pomodoro-controls {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
 }
@@ -634,6 +657,7 @@ button.danger {
   font-size: 0.78rem;
   border-radius: 999px;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .pomodoro-controls .chip {
@@ -656,6 +680,7 @@ button.danger {
   font-size: 0.76rem;
   line-height: 1.2;
   padding: 0.26rem 0.58rem;
+  white-space: nowrap;
 }
 
 .pomodoro-menu > summary::-webkit-details-marker {
@@ -922,6 +947,7 @@ button.danger {
 }
 
 .rich-editor-content .ProseMirror {
+  min-width: 0;
   min-height: 220px;
   padding: 0.85rem 0.95rem;
   outline: none;
@@ -930,6 +956,18 @@ button.danger {
 
 .rich-editor-content .ProseMirror p {
   margin: 0 0 0.65rem;
+}
+
+.rich-editor-content .ProseMirror p,
+.rich-editor-content .ProseMirror li,
+.manual-notes-view p,
+.manual-notes-view li,
+.manual-notes-view blockquote,
+.manual-notes-view h1,
+.manual-notes-view h2,
+.manual-notes-view h3 {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .rich-editor-content .ProseMirror ul,
@@ -982,6 +1020,7 @@ button.danger {
 .manual-notes-view img {
   display: block;
   max-width: 100%;
+  height: auto;
   border-radius: 8px;
   margin: 0.65rem 0;
 }
@@ -998,6 +1037,7 @@ button.danger {
 
 .rich-editor-content .ProseMirror pre,
 .manual-notes-view pre {
+  max-width: 100%;
   margin: 0.65rem 0;
   padding: 0.72rem 0.82rem;
   border-radius: 10px;
@@ -1011,6 +1051,8 @@ button.danger {
   background: transparent;
   color: inherit;
   padding: 0;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .rich-editor-content .ProseMirror hr,
@@ -1022,9 +1064,13 @@ button.danger {
 
 .rich-editor-content .ProseMirror table,
 .manual-notes-view table {
-  width: 100%;
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 0.75rem 0;
+  overflow-x: auto;
 }
 
 .rich-editor-content .ProseMirror th,
@@ -1050,6 +1096,9 @@ button.danger {
 }
 
 .manual-notes-view {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
   border: 1px dashed var(--line);
   border-radius: 12px;
   padding: 0.9rem 0.95rem;
@@ -1189,6 +1238,8 @@ button.danger {
   line-height: 1.04;
   letter-spacing: 0;
   text-wrap: balance;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .theme-layout {
@@ -1196,6 +1247,11 @@ button.danger {
   gap: 1rem;
   grid-template-columns: minmax(0, 1.6fr) minmax(290px, 0.9fr);
   align-items: start;
+}
+
+.theme-main,
+.theme-sidebar {
+  min-width: 0;
 }
 
 .theme-layout-collapsed {
@@ -1283,17 +1339,51 @@ button.danger {
 
   .nav-list-header {
     width: 100%;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 0.45rem;
+  }
+
+  .nav-list-header > li {
+    min-width: 0;
+  }
+
+  .nav-pomodoro-slot {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .nav-list-header > li:not(.nav-pomodoro-slot) {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 0.65rem;
   }
 
   .pomodoro-widget {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
   }
 
   .pomodoro-main-row {
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .courses-page li.row-between {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .courses-page li.row-between > a.button {
+    justify-self: flex-start;
   }
 
   .pomodoro-settings-grid {
