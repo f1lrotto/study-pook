@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState, type ChangeEvent } from 'react'
 
 import { useMutation, useQuery } from 'convex/react'
+import 'katex/dist/katex.min.css'
 import ReactMarkdown from 'react-markdown'
+import rehypeKatex from 'rehype-katex'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 import { Link, useParams } from 'react-router-dom'
 
 import { api } from '../../convex/_generated/api'
@@ -392,7 +395,7 @@ export function ThemePage() {
             {noteError ? <p className="warning">{noteError}</p> : null}
 
             {isEditingNotes ? (
-              <div className="stack-sm">
+              <div className="notes-edit-container">
                 <RichTextEditor
                   imageUrlMap={noteImageUrlMap}
                   onChange={setNoteDraft}
@@ -428,7 +431,8 @@ export function ThemePage() {
                       )
                     },
                   }}
-                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeKatex]}
+                  remarkPlugins={[remarkGfm, remarkMath]}
                   urlTransform={(url) => url}
                 >
                   {data.themeNote.markdown}

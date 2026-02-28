@@ -864,6 +864,19 @@ button.danger {
   justify-content: flex-end;
 }
 
+.notes-edit-container {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.notes-edit-container .inline-edit-actions {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.92), rgba(235, 245, 255, 0.9));
+  padding: 0.6rem 0;
+  z-index: 40;
+}
+
 .rich-editor {
   border: 1px solid var(--line);
   border-radius: 14px;
