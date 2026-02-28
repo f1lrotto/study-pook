@@ -7,19 +7,30 @@ import Placeholder from '@tiptap/extension-placeholder'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { useMutation } from 'convex/react'
+import { Marked } from 'marked'
 
 import { api } from '../../convex/_generated/api'
 import { parseStorageImageUri } from '../lib/notes/markdownFile'
 
+// Disable table tokenization so raw markdown table syntax (pipes) survives
+// the editor round-trip. Tables render only in the read-only view via remark-gfm.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const editorMarked = new Marked({ tokenizer: { table: () => undefined } }) as any
+
 const asImageFiles = (fileList: FileList | null) =>
   Array.from(fileList ?? []).filter((file) => file.type.startsWith('image/'))
 
+const collapseTableRows = (value: string) =>
+  value.replace(/(\|[^\n]*)\n\n(?=\|)/g, '$1\n')
+
 const normalizeMarkdown = (value: string) =>
-  value
-    .replace(/\r\n/g, '\n')
-    .replace(/[ \t]+$/gm, '')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim()
+  collapseTableRows(
+    value
+      .replace(/\r\n/g, '\n')
+      .replace(/[ \t]+$/gm, '')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim(),
+  )
 
 const toStorageImageUri = (storageId: string, imageName?: string) => {
   const name = encodeURIComponent((imageName ?? 'image').trim() || 'image')
@@ -120,7 +131,7 @@ export function RichTextEditor({
           levels: [1, 2, 3],
         },
       }),
-      Markdown,
+      Markdown.configure({ marked: editorMarked }),
       Link.configure({
         openOnClick: false,
         autolink: true,
