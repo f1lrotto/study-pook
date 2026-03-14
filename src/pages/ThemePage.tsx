@@ -478,7 +478,7 @@ export function ThemePage() {
             </article>
 
             <article className="panel">
-              <h3>Progress</h3>
+              <h3>Pokrok</h3>
               <div className="row-gap theme-meta-row">
                 <span className="status-pill" data-status={status}>
                   {progressStatusLabels[status]}

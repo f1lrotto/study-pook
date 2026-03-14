@@ -4,8 +4,8 @@ import { isConvexEnvMissingInProd } from '../lib/convexClient'
 import { PomodoroTimer } from './PomodoroTimer'
 
 const navItems = [
-  { to: '/', label: 'Dashboard' },
-  { to: '/courses', label: 'Topics' },
+  { to: '/', label: 'Prehľad' },
+  { to: '/courses', label: 'Témy' },
   { to: '/wheel', label: 'Koleso' },
   { to: '/import', label: 'Import' },
 ]

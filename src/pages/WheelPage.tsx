@@ -65,7 +65,7 @@ export function WheelPage() {
   return (
     <section className="stack-lg">
       <article className="panel">
-        <h2>Smart wheel</h2>
+        <h2>Koleso šťastia</h2>
         <p>
           Výber je vážený podľa confidence, stavu a čerstvosti. Aktívne stavy:{' '}
           <strong>{statusLabel}</strong>
