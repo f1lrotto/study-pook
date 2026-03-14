@@ -1446,20 +1446,10 @@ button.danger {
 
   .nav-list-header {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-content: stretch;
-    align-items: stretch;
-    gap: 0.45rem;
-  }
-
-  .nav-list-header > li {
-    min-width: 0;
-  }
-
-  .nav-pomodoro-slot {
-    grid-column: 1 / -1;
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
   }
 
   .nav-list-header > li:not(.nav-pomodoro-slot) {
@@ -1467,14 +1457,32 @@ button.danger {
   }
 
   .nav-link {
-    width: 100%;
-    justify-content: center;
-    padding-inline: 0.65rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.85rem;
   }
 
   .pomodoro-widget {
     width: 100%;
     max-width: none;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .pomodoro-mode {
+    font-size: 0.65rem;
+    padding: 0.12rem 0.38rem;
+  }
+
+  .pomodoro-time {
+    font-size: 1rem;
+  }
+
+  .pomodoro-total {
+    font-size: 0.65rem;
+  }
+
+  .pomodoro-controls button {
+    padding: 0.2rem 0.48rem;
+    font-size: 0.72rem;
   }
 
   .pomodoro-main-row {
@@ -1560,5 +1568,13 @@ button.danger {
 
   .panel > h3 {
     font-size: clamp(1.15rem, 5.5vw, 1.45rem);
+  }
+
+  .brand-block h1 {
+    font-size: 1.2rem;
+  }
+
+  .kicker {
+    font-size: 0.7rem;
   }
 }
