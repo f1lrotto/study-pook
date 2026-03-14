@@ -36,16 +36,6 @@ export function ThemePage() {
       : 'skip',
   )
 
-  const courseThemes = useQuery(
-    api.study.listThemes,
-    data
-      ? {
-          courseId: data.theme.courseId as never,
-          userKey,
-        }
-      : 'skip',
-  )
-
   const saveProgress = useMutation(api.study.setThemeProgress)
   const updateThemeTitle = useMutation(api.study.updateThemeTitle)
   const updateThemeSubthemes = useMutation(api.study.updateThemeSubthemes)
@@ -309,13 +299,8 @@ export function ThemePage() {
     },
   ).rows
 
-  const orderedCourseThemes = (courseThemes ?? []) as Array<{
-    _id: string
-    title: string
-  }>
-
-  const currentThemeIndex = orderedCourseThemes.findIndex((theme) => theme._id === data.theme._id)
-  const nextTheme = currentThemeIndex >= 0 ? orderedCourseThemes[currentThemeIndex + 1] : null
+  const prevTheme = data.prevTheme
+  const nextTheme = data.nextTheme
 
   const hasStudyNotes = Boolean(data.themeNote.markdown.trim())
   const noteImageUrlMap = data.themeNote.imageUrlMap ?? {}
@@ -591,16 +576,22 @@ export function ThemePage() {
               <button disabled={isSaving} onClick={onSaveProgress} type="button">
                 {isSaving ? 'Ukladám…' : 'Uložiť progress'}
               </button>
-              {nextTheme ? (
-                <div className="stack-xs next-theme-cta">
-                  <p className="muted-copy">Pokračovať na ďalšiu tému</p>
-                  <Link className="button" to={`/theme/${nextTheme._id}`}>
-                    Ďalšia téma: {nextTheme.title}
+              <div className="theme-navigation-cta">
+                {prevTheme ? (
+                  <Link className="button button-secondary" to={`/theme/${prevTheme._id}`}>
+                    ← {prevTheme.title}
                   </Link>
-                </div>
-              ) : (
-                <p className="muted-copy">Toto je posledná téma v tomto kurze.</p>
-              )}
+                ) : (
+                  <span />
+                )}
+                {nextTheme ? (
+                  <Link className="button" to={`/theme/${nextTheme._id}`}>
+                    {nextTheme.title} →
+                  </Link>
+                ) : (
+                  <span />
+                )}
+              </div>
             </article>
           </aside>
         )}

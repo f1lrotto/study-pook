@@ -276,6 +276,19 @@ export const getTheme = query({
 
     const course = await ctx.db.get(theme.courseId)
 
+    // Fetch adjacent themes for prev/next navigation
+    const siblingThemes = await ctx.db
+      .query('themes')
+      .withIndex('by_course_order', (q) => q.eq('courseId', theme.courseId))
+      .collect()
+    const sorted = siblingThemes.sort((a, b) => a.order - b.order)
+    const idx = sorted.findIndex((t) => t._id === theme._id)
+    const prevTheme = idx > 0 ? { _id: sorted[idx - 1]._id, title: sorted[idx - 1].title } : null
+    const nextTheme =
+      idx >= 0 && idx < sorted.length - 1
+        ? { _id: sorted[idx + 1]._id, title: sorted[idx + 1].title }
+        : null
+
     const progress = args.userKey
       ? await ctx.db
           .query('progress')
@@ -295,6 +308,8 @@ export const getTheme = query({
       theme,
       course,
       progress,
+      prevTheme,
+      nextTheme,
       themeNote: {
         markdown: themeNote?.markdown ?? '',
         updatedAt: themeNote?.updatedAt ?? null,

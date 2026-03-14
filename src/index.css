@@ -1121,8 +1121,21 @@ button.danger {
   line-height: 1.62;
 }
 
-.next-theme-cta {
+.button.button-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.theme-navigation-cta {
   margin-top: 0.35rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.theme-navigation-cta .button {
+  font-size: 0.85rem;
 }
 
 .note-line {
