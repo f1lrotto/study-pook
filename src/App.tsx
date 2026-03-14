@@ -5,7 +5,6 @@ import { DashboardPage } from './pages/DashboardPage'
 import { CoursesPage } from './pages/CoursesPage'
 import { ThemePage } from './pages/ThemePage'
 import { WheelPage } from './pages/WheelPage'
-import { ImportPage } from './pages/ImportPage'
 
 const router = createBrowserRouter([
   {
@@ -27,10 +26,6 @@ const router = createBrowserRouter([
       {
         path: 'wheel',
         element: <WheelPage />,
-      },
-      {
-        path: 'import',
-        element: <ImportPage />,
       },
       {
         path: '*',

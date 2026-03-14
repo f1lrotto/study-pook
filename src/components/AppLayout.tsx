@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { useState } from 'react'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
 
 import { isConvexEnvMissingInProd } from '../lib/convexClient'
 import { PomodoroTimer } from './PomodoroTimer'
@@ -7,10 +8,15 @@ const navItems = [
   { to: '/', label: 'Prehľad' },
   { to: '/courses', label: 'Témy' },
   { to: '/wheel', label: 'Koleso' },
-  { to: '/import', label: 'Import' },
 ]
 
 export function AppLayout() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  // Close menu on navigation
+  const handleNavClick = () => setMenuOpen(false)
+
   return (
     <div className="app-shell">
       {isConvexEnvMissingInProd ? (
@@ -25,6 +31,15 @@ export function AppLayout() {
           <p className="kicker">Štátnice DAV 2026</p>
           <h1>Study Companion</h1>
         </div>
+
+        <button
+          className="hamburger-btn"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label={menuOpen ? 'Zavrieť menu' : 'Otvoriť menu'}
+          aria-expanded={menuOpen}
+        >
+          <span className={`hamburger-icon ${menuOpen ? 'hamburger-open' : ''}`} />
+        </button>
 
         <nav>
           <ul className="nav-list nav-list-header">
@@ -43,6 +58,30 @@ export function AppLayout() {
             ))}
           </ul>
         </nav>
+
+        {menuOpen && (
+          <div className="mobile-menu-overlay" onClick={handleNavClick}>
+            <div className="mobile-menu" onClick={(e) => e.stopPropagation()}>
+              <div className="mobile-menu-nav">
+                {navItems.map((item) => (
+                  <NavLink
+                    key={item.to}
+                    className={({ isActive }) =>
+                      `mobile-menu-link ${isActive ? 'mobile-menu-link-active' : ''}`
+                    }
+                    to={item.to}
+                    onClick={handleNavClick}
+                  >
+                    {item.label}
+                  </NavLink>
+                ))}
+              </div>
+              <div className="mobile-menu-pomodoro">
+                <PomodoroTimer />
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="page-wrap">
