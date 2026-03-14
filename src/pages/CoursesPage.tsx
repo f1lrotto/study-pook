@@ -71,86 +71,110 @@ export function CoursesPage() {
         </label>
       </article>
 
-      {courseRows.map((course) => {
-        const courseThemes = groupedThemes.get(course._id) ?? []
-        const missingNotesCount = courseThemes.filter((theme) => !theme.hasStudyNotes).length
-        const editedNotesCount = courseThemes.filter((theme) => theme.hasUserEditedNotes).length
+      <div className="courses-layout">
+        <div className="courses-main stack-lg">
+          {courseRows.map((course) => {
+            const courseThemes = groupedThemes.get(course._id) ?? []
+            const missingNotesCount = courseThemes.filter((theme) => !theme.hasStudyNotes).length
+            const editedNotesCount = courseThemes.filter((theme) => theme.hasUserEditedNotes).length
 
-        return (
-          <article className="panel" key={course._id}>
-            <div className="row-between compact course-section-header">
-              <div>
-                <div className="inline-title-row">
-                  <h2 className="course-title">{course.title}</h2>
-                </div>
-                <p>{courseThemes.length} tém zobrazených</p>
-                <div className="course-meta-row">
-                  <span className="status-pill status-pill-course">
-                    {course.completedCount}/{course.themeCount} prejdených
-                  </span>
-                  {missingNotesCount ? (
-                    <span className="notes-missing-pill">{missingNotesCount} bez poznámok</span>
-                  ) : null}
-                  {editedNotesCount ? (
-                    <span className="notes-edited-pill">
-                      {editedNotesCount} s vlastnými úpravami
-                    </span>
-                  ) : null}
-                  <span
-                    className="confidence-pill"
-                    data-level={Math.round(course.averageConfidence)}
-                  >
-                    Confidence {formatConfidence(course.averageConfidence)}/5
-                  </span>
-                  <span className="badge badge-completion">{formatPercent(course.completion)}</span>
-                </div>
-                <div aria-hidden className="meter">
-                  <span style={{ width: `${Math.round(course.completion * 100)}%` }} />
-                </div>
-              </div>
-            </div>
-
-            {courseThemes.length === 0 ? (
-              <EmptyState message="Žiadna téma pre aktuálny filter." />
-            ) : (
-              <ul className="stack-sm">
-                {courseThemes.map((theme) => {
-                  const themeStatus = theme.progress?.status ?? 'not_started'
-                  const themeConfidence = theme.progress?.confidence ?? 0
-
-                  return (
-                    <li key={theme._id}>
-                      <Link className="theme-row" to={`/theme/${theme._id}`}>
-                        <span className="strong-link">
-                          {theme.number}. {theme.title}
+            return (
+              <article className="panel" id={`course-${course._id}`} key={course._id}>
+                <div className="row-between compact course-section-header">
+                  <div>
+                    <div className="inline-title-row">
+                      <h2 className="course-title">{course.title}</h2>
+                    </div>
+                    <p>{courseThemes.length} tém zobrazených</p>
+                    <div className="course-meta-row">
+                      <span className="status-pill status-pill-course">
+                        {course.completedCount}/{course.themeCount} prejdených
+                      </span>
+                      {missingNotesCount ? (
+                        <span className="notes-missing-pill">{missingNotesCount} bez poznámok</span>
+                      ) : null}
+                      {editedNotesCount ? (
+                        <span className="notes-edited-pill">
+                          {editedNotesCount} s vlastnými úpravami
                         </span>
-                        <span className="row-gap theme-meta-row">
-                          <span className="status-pill" data-status={themeStatus}>
-                            {progressStatusLabels[themeStatus]}
-                          </span>
-                          {!theme.hasStudyNotes ? (
-                            <span className="notes-missing-pill">Bez poznámok</span>
-                          ) : null}
-                          {theme.hasUserEditedNotes ? (
-                            <span className="notes-edited-pill">Vlastné úpravy</span>
-                          ) : null}
-                          <span
-                            className="confidence-pill"
-                            data-level={themeConfidence}
-                            data-status={themeStatus}
-                          >
-                            Confidence {themeConfidence}/5
-                          </span>
-                        </span>
-                      </Link>
-                    </li>
-                  )
-                })}
+                      ) : null}
+                      <span
+                        className="confidence-pill"
+                        data-level={Math.round(course.averageConfidence)}
+                      >
+                        Confidence {formatConfidence(course.averageConfidence)}/5
+                      </span>
+                      <span className="badge badge-completion">
+                        {formatPercent(course.completion)}
+                      </span>
+                    </div>
+                    <div aria-hidden className="meter">
+                      <span style={{ width: `${Math.round(course.completion * 100)}%` }} />
+                    </div>
+                  </div>
+                </div>
+
+                {courseThemes.length === 0 ? (
+                  <EmptyState message="Žiadna téma pre aktuálny filter." />
+                ) : (
+                  <ul className="stack-sm">
+                    {courseThemes.map((theme) => {
+                      const themeStatus = theme.progress?.status ?? 'not_started'
+                      const themeConfidence = theme.progress?.confidence ?? 0
+
+                      return (
+                        <li key={theme._id}>
+                          <Link className="theme-row" to={`/theme/${theme._id}`}>
+                            <span className="strong-link">
+                              {theme.number}. {theme.title}
+                            </span>
+                            <span className="row-gap theme-meta-row">
+                              <span className="status-pill" data-status={themeStatus}>
+                                {progressStatusLabels[themeStatus]}
+                              </span>
+                              {!theme.hasStudyNotes ? (
+                                <span className="notes-missing-pill">Bez poznámok</span>
+                              ) : null}
+                              {theme.hasUserEditedNotes ? (
+                                <span className="notes-edited-pill">Vlastné úpravy</span>
+                              ) : null}
+                              <span
+                                className="confidence-pill"
+                                data-level={themeConfidence}
+                                data-status={themeStatus}
+                              >
+                                Confidence {themeConfidence}/5
+                              </span>
+                            </span>
+                          </Link>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                )}
+              </article>
+            )
+          })}
+        </div>
+
+        <aside className="courses-sidebar">
+          <article className="panel">
+            <h3>Kurzy</h3>
+            <nav>
+              <ul className="courses-sidebar-nav">
+                {courseRows.map((course) => (
+                  <li key={course._id}>
+                    <a href={`#course-${course._id}`}>
+                      <span>{course.title}</span>
+                      <span className="sidebar-completion">{formatPercent(course.completion)}</span>
+                    </a>
+                  </li>
+                ))}
               </ul>
-            )}
+            </nav>
           </article>
-        )
-      })}
+        </aside>
+      </div>
     </section>
   )
 }

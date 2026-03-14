@@ -1291,6 +1291,73 @@ button.danger {
   top: 1rem;
 }
 
+/* ── Courses page layout ─────────────────────────── */
+
+.courses-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  align-items: start;
+}
+
+.courses-main,
+.courses-sidebar {
+  min-width: 0;
+}
+
+.courses-sidebar {
+  position: sticky;
+  top: 1rem;
+}
+
+.courses-sidebar .panel {
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.courses-sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.courses-sidebar-nav li + li {
+  margin-top: 0.15rem;
+}
+
+.courses-sidebar-nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: background 0.15s ease;
+}
+
+.courses-sidebar-nav a:hover {
+  background: rgba(90, 150, 206, 0.12);
+}
+
+.courses-sidebar-nav a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.courses-sidebar-nav .sidebar-completion {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #5c7592;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
 .courses-page .course-section-header {
   padding-bottom: 0.8rem;
   border-bottom: 1px solid var(--line);
@@ -1463,6 +1530,15 @@ button.danger {
 
   .theme-sidebar {
     position: static;
+  }
+
+  .courses-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-sidebar {
+    position: static;
+    display: none;
   }
 
   .courses-page .course-title {
