@@ -20,8 +20,25 @@ const editorMarked = new Marked({ tokenizer: { table: () => undefined } }) as an
 const asImageFiles = (fileList: FileList | null) =>
   Array.from(fileList ?? []).filter((file) => file.type.startsWith('image/'))
 
-const collapseTableRows = (value: string) =>
-  value.replace(/(\|[^\n]*)\n\n(?=\|)/g, '$1\n')
+/** Convert a `data:` URI to a File suitable for upload. */
+const dataUriToFile = async (dataUri: string, name: string): Promise<File> => {
+  const res = await fetch(dataUri)
+  const blob = await res.blob()
+  return new File([blob], name, { type: blob.type || 'image/png' })
+}
+
+/**
+ * Parse an HTML string (e.g. from clipboard `text/html`) and return Files for
+ * every `<img>` whose `src` is a `data:` URI.  Returns the parsed Document and
+ * the list of {img, file} pairs so callers can rewrite `src` after upload.
+ */
+const extractDataUriImages = (html: string) => {
+  const doc = new DOMParser().parseFromString(html, 'text/html')
+  const imgs = Array.from(doc.querySelectorAll('img')).filter((img) => img.src.startsWith('data:'))
+  return { doc, imgs }
+}
+
+const collapseTableRows = (value: string) => value.replace(/(\|[^\n]*)\n\n(?=\|)/g, '$1\n')
 
 const normalizeMarkdown = (value: string) =>
   collapseTableRows(
@@ -156,35 +173,68 @@ export function RichTextEditor({
           return false
         }
 
+        // 1. Direct image clipboard items (e.g. screenshot paste, single image copy)
         const clipboardItems = Array.from(event.clipboardData?.items ?? [])
         const imageFiles = clipboardItems
           .filter((item) => item.type.startsWith('image/'))
           .map((item) => item.getAsFile())
           .filter((file): file is File => Boolean(file))
 
-        if (!imageFiles.length) {
-          return false
+        if (imageFiles.length) {
+          event.preventDefault()
+
+          const imageNode = view.state.schema.nodes.image
+          if (!imageNode) {
+            return false
+          }
+
+          void Promise.all(
+            imageFiles.map(async (file) => {
+              const src = await uploadImage(file)
+              const node = imageNode.create({ src, alt: file.name || 'image' })
+              const transaction = view.state.tr.replaceSelectionWith(node).scrollIntoView()
+              view.dispatch(transaction)
+            }),
+          ).catch((error) => {
+            console.error(error)
+          })
+
+          return true
         }
 
-        event.preventDefault()
+        // 2. Rich HTML with embedded data-URI images (e.g. paste from Word)
+        const html = event.clipboardData?.getData('text/html')
+        if (html) {
+          const { doc, imgs } = extractDataUriImages(html)
 
-        const imageNode = view.state.schema.nodes.image
-        if (!imageNode) {
-          return false
+          if (imgs.length) {
+            event.preventDefault()
+
+            void (async () => {
+              for (let i = 0; i < imgs.length; i++) {
+                const img = imgs[i]
+                try {
+                  const file = await dataUriToFile(img.src, `image-${i + 1}.png`)
+                  const storageUri = await uploadImage(file)
+                  img.src = storageUri
+                  img.removeAttribute('width')
+                  img.removeAttribute('height')
+                } catch (err) {
+                  console.error('Failed to upload pasted image:', err)
+                  img.remove()
+                }
+              }
+
+              editor?.commands.insertContent(doc.body.innerHTML)
+            })().catch((error) => {
+              console.error(error)
+            })
+
+            return true
+          }
         }
 
-        void Promise.all(
-          imageFiles.map(async (file) => {
-            const src = await uploadImage(file)
-            const node = imageNode.create({ src, alt: file.name || 'image' })
-            const transaction = view.state.tr.replaceSelectionWith(node).scrollIntoView()
-            view.dispatch(transaction)
-          }),
-        ).catch((error) => {
-          console.error(error)
-        })
-
-        return true
+        return false
       },
     },
   })
