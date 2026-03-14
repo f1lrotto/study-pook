@@ -1304,14 +1304,26 @@ button.danger {
   line-height: 1.35;
 }
 
-.courses-page li.row-between {
-  padding: 0.15rem 0;
+.courses-page li:nth-child(odd) {
+  background: rgba(90, 150, 206, 0.05);
 }
 
-.courses-page li.row-between p {
-  margin-top: 0.15rem;
-  color: #58708d;
-  font-size: 0.92rem;
+.courses-page .theme-row {
+  display: block;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+}
+
+.courses-page .theme-row:hover {
+  background: rgba(90, 150, 206, 0.12);
+}
+
+.courses-page .theme-row:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 .dashboard-page > .panel > h2 {
@@ -1410,16 +1422,6 @@ button.danger {
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-  }
-
-  .courses-page li.row-between {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.6rem;
-  }
-
-  .courses-page li.row-between > a.button {
-    justify-self: flex-start;
   }
 
   .pomodoro-settings-grid {

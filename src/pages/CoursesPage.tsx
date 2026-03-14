@@ -119,14 +119,12 @@ export function CoursesPage() {
                   const themeConfidence = theme.progress?.confidence ?? 0
 
                   return (
-                    <li className="row-between compact" key={theme._id}>
-                      <div>
-                        <div className="inline-title-row">
-                          <Link className="strong-link" to={`/theme/${theme._id}`}>
-                            {theme.number}. {theme.title}
-                          </Link>
-                        </div>
-                        <div className="row-gap theme-meta-row">
+                    <li key={theme._id}>
+                      <Link className="theme-row" to={`/theme/${theme._id}`}>
+                        <span className="strong-link">
+                          {theme.number}. {theme.title}
+                        </span>
+                        <span className="row-gap theme-meta-row">
                           <span className="status-pill" data-status={themeStatus}>
                             {progressStatusLabels[themeStatus]}
                           </span>
@@ -143,10 +141,7 @@ export function CoursesPage() {
                           >
                             Confidence {themeConfidence}/5
                           </span>
-                        </div>
-                      </div>
-                      <Link className="button" to={`/theme/${theme._id}`}>
-                        Študovať
+                        </span>
                       </Link>
                     </li>
                   )
