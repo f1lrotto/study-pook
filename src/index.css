@@ -827,6 +827,13 @@ button.danger {
   font-weight: 650;
   line-height: 1.1;
   white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.text-edit-trigger:hover {
+  background: rgba(90, 150, 206, 0.12);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .section-title-row {
@@ -1158,6 +1165,12 @@ button.danger {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.button.button-secondary:hover {
+  background: var(--ink);
+  color: white;
 }
 
 .theme-navigation-cta {
