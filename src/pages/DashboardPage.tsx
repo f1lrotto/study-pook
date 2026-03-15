@@ -30,22 +30,22 @@ export function DashboardPage() {
   return (
     <section className="stack-lg dashboard-page">
       <div className="grid-4">
-        <article className="panel stat">
+        <article className="panel stat stat-compact">
           <p>Témy spolu</p>
           <strong>{dashboard.themeCount}</strong>
         </article>
 
-        <article className="panel stat">
+        <article className="panel stat stat-compact">
           <p>Dokončenie</p>
           <strong>{formatPercent(completionRatio)}</strong>
         </article>
 
-        <article className="panel stat">
+        <article className="panel stat stat-compact">
           <p>Rozpracované</p>
           <strong>{dashboard.totals.inProgress}</strong>
         </article>
 
-        <article className="panel stat">
+        <article className="panel stat stat-compact">
           <p>Zvládnuté</p>
           <strong>{dashboard.totals.mastered}</strong>
         </article>

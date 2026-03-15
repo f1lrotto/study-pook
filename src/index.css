@@ -74,7 +74,59 @@ button {
 }
 
 input[type='range'] {
-  accent-color: var(--accent);
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--accent) 0%,
+    var(--accent) var(--fill, 0%),
+    #eaf3fd var(--fill, 0%),
+    #eaf3fd 100%
+  );
+}
+
+input[type='range']::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--accent) 0%,
+    var(--accent) var(--fill, 0%),
+    #eaf3fd var(--fill, 0%),
+    #eaf3fd 100%
+  );
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(31, 70, 120, 0.25);
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(31, 70, 120, 0.25);
+  cursor: pointer;
 }
 
 input,
@@ -89,6 +141,38 @@ textarea {
 
 textarea {
   resize: vertical;
+}
+
+/* Custom tooltip */
+.dblclick-hint {
+  position: relative;
+  cursor: text;
+}
+
+.dblclick-hint::after {
+  content: attr(data-hint);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: white;
+  font-family: system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 10;
+}
+
+.dblclick-hint:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 button,
@@ -324,6 +408,18 @@ button.danger {
 .stat strong {
   font-size: 1.8rem;
   color: #2e5d8d;
+}
+
+.stat-compact {
+  padding: 0.7rem 0.85rem;
+}
+
+.stat-compact p {
+  font-size: 0.82rem;
+}
+
+.stat-compact strong {
+  font-size: 1.5rem;
 }
 
 .badge {
@@ -872,14 +968,14 @@ button.danger {
   border-radius: 50%;
   border: 8px solid #3c6f9e;
   background: conic-gradient(
-    #74addf 0deg 45deg,
-    #8fc0e9 45deg 90deg,
-    #7ab7d8 90deg 135deg,
-    #9ec9ef 135deg 180deg,
-    #acd3f2 180deg 225deg,
-    #7da9d6 225deg 270deg,
-    #8ab5de 270deg 315deg,
-    #6d9ecd 315deg 360deg
+    #7eb8d4 0deg 45deg,
+    #a8d4a0 45deg 90deg,
+    #f0c87a 90deg 135deg,
+    #e8a0a0 135deg 180deg,
+    #b8a0d8 180deg 225deg,
+    #80c0c0 225deg 270deg,
+    #d4b88c 270deg 315deg,
+    #90b8e8 315deg 360deg
   );
   transition: transform 0.9s cubic-bezier(0.18, 0.77, 0.24, 1);
 }

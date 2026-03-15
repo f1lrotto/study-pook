@@ -328,16 +328,16 @@ export function ThemePage() {
           </div>
         ) : (
           <div className="inline-title-row">
-            <h2>
+            <h2
+              className="dblclick-hint"
+              data-hint="Dvojklik na úpravu"
+              onDoubleClick={() => {
+                setThemeTitleDraft(data.theme.title)
+                setIsEditingThemeTitle(true)
+              }}
+            >
               {data.theme.number}. {data.theme.title}
             </h2>
-            <button
-              className="text-edit-trigger"
-              onClick={() => setIsEditingThemeTitle(true)}
-              type="button"
-            >
-              Upraviť názov
-            </button>
           </div>
         )}
       </article>
@@ -348,24 +348,29 @@ export function ThemePage() {
             <div className="row-between compact section-title-row">
               <h3>Poznámky</h3>
               <div className="section-title-actions">
-                <button
-                  className="text-edit-trigger"
-                  onClick={() => setIsSidebarCollapsed((value) => !value)}
-                  type="button"
-                >
-                  {isSidebarCollapsed ? 'Zobraziť panel' : 'Skryť panel'}
-                </button>
-                <button className="text-edit-trigger" onClick={triggerImportNotes} type="button">
-                  {isImportingNotes ? 'Importujem…' : 'Import .md'}
-                </button>
-                <button className="text-edit-trigger" onClick={exportNotes} type="button">
-                  Export .md
-                </button>
                 {!isEditingNotes ? (
                   <button className="text-edit-trigger" onClick={startNotesEdit} type="button">
                     {hasStudyNotes ? 'Upraviť poznámky' : 'Pridať poznámky'}
                   </button>
                 ) : null}
+                <details className="pomodoro-menu">
+                  <summary className="text-edit-trigger">Viac</summary>
+                  <div className="pomodoro-menu-panel stack-sm">
+                    <button
+                      className="text-edit-trigger"
+                      onClick={() => setIsSidebarCollapsed((value) => !value)}
+                      type="button"
+                    >
+                      {isSidebarCollapsed ? 'Zobraziť panel' : 'Skryť panel'}
+                    </button>
+                    <button className="text-edit-trigger" onClick={triggerImportNotes} type="button">
+                      {isImportingNotes ? 'Importujem…' : 'Import .md'}
+                    </button>
+                    <button className="text-edit-trigger" onClick={exportNotes} type="button">
+                      Export .md
+                    </button>
+                  </div>
+                </details>
               </div>
             </div>
 
@@ -432,18 +437,7 @@ export function ThemePage() {
         {isSidebarCollapsed ? null : (
           <aside className="theme-sidebar stack-lg">
             <article className="panel">
-              <div className="row-between compact section-title-row">
-                <h3>Subtémy zo sylabu</h3>
-                {isEditingSubthemes ? null : (
-                  <button
-                    className="text-edit-trigger"
-                    onClick={() => setIsEditingSubthemes(true)}
-                    type="button"
-                  >
-                    Upraviť
-                  </button>
-                )}
-              </div>
+              <h3>Subtémy zo sylabu</h3>
               {isEditingSubthemes ? (
                 <div className="stack-sm">
                   <textarea
@@ -467,7 +461,11 @@ export function ThemePage() {
                   </div>
                 </div>
               ) : data.theme.subthemes.length ? (
-                <ul className="stack-xs">
+                <ul
+                  className="stack-xs dblclick-hint"
+                  data-hint="Dvojklik na úpravu"
+                  onDoubleClick={() => setIsEditingSubthemes(true)}
+                >
                   {subthemeRows.map((subtheme) => (
                     <li key={subtheme.key}>• {subtheme.value}</li>
                   ))}
@@ -538,6 +536,7 @@ export function ThemePage() {
                     setManualConfidence(clampConfidence(Number(event.target.value)))
                   }
                   step={1}
+                  style={{ '--fill': `${(clampConfidence(manualConfidence) / 5) * 100}%` } as React.CSSProperties}
                   type="range"
                   value={clampConfidence(manualConfidence)}
                 />
@@ -566,6 +565,7 @@ export function ThemePage() {
                           })
                         }
                         step={1}
+                        style={{ '--fill': `${(normalizedSubthemeConfidences[index] / 5) * 100}%` } as React.CSSProperties}
                         type="range"
                         value={normalizedSubthemeConfidences[index]}
                       />
