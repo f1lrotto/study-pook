@@ -104,7 +104,7 @@ button,
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: filter 0.15s ease, transform 0.1s ease;
+  transition: background 0.18s ease, filter 0.15s ease, transform 0.1s ease, box-shadow 0.18s ease;
 }
 
 button:disabled {
@@ -112,12 +112,16 @@ button:disabled {
   cursor: not-allowed;
 }
 
-button:hover:not(:disabled) {
-  filter: brightness(1.15);
+button:hover:not(:disabled),
+.button:hover {
+  background: #2a4565;
+  box-shadow: 0 2px 8px rgba(21, 38, 59, 0.18);
 }
 
-button:active:not(:disabled) {
+button:active:not(:disabled),
+.button:active {
   transform: scale(0.97);
+  background: #1e3550;
 }
 
 button.danger {
@@ -1165,16 +1169,42 @@ button.danger {
   background: transparent;
   color: var(--ink);
   border: 1px solid var(--ink);
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .button.button-secondary:hover {
   background: var(--ink);
   color: white;
+  box-shadow: 0 2px 8px rgba(21, 38, 59, 0.18);
+}
+
+.button.button-secondary:active {
+  background: #1e3550;
+  color: white;
+}
+
+.save-progress-btn {
+  background: var(--accent) !important;
+  color: white !important;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  letter-spacing: 0.01em;
+}
+
+.save-progress-btn:hover:not(:disabled) {
+  background: #4a86be !important;
+  box-shadow: 0 2px 10px rgba(90, 150, 206, 0.3) !important;
+}
+
+.save-progress-btn:active:not(:disabled) {
+  background: #3d7ab2 !important;
+  transform: scale(0.97);
 }
 
 .theme-navigation-cta {
-  margin-top: 0.35rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
@@ -1182,6 +1212,12 @@ button.danger {
 
 .theme-navigation-cta .button {
   font-size: 0.85rem;
+  flex: 1;
+  text-align: center;
+}
+
+.theme-navigation-cta .button:hover {
+  transform: translateY(-1px);
 }
 
 .note-line {

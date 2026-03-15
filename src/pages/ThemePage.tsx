@@ -573,7 +573,7 @@ export function ThemePage() {
                   ))}
                 </div>
               ) : null}
-              <button disabled={isSaving} onClick={onSaveProgress} type="button">
+              <button className="save-progress-btn" disabled={isSaving} onClick={onSaveProgress} type="button">
                 {isSaving ? 'Ukladám…' : 'Uložiť progress'}
               </button>
               <div className="theme-navigation-cta">
@@ -585,7 +585,7 @@ export function ThemePage() {
                   <span />
                 )}
                 {nextTheme ? (
-                  <Link className="button" to={`/theme/${nextTheme._id}`}>
+                  <Link className="button button-secondary" to={`/theme/${nextTheme._id}`}>
                     {nextTheme.title} →
                   </Link>
                 ) : (
