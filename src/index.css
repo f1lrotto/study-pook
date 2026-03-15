@@ -451,7 +451,12 @@ button.danger {
   color: var(--confidence-low-ink);
 }
 
-.confidence-pill[data-level='0'],
+.confidence-pill[data-level='0'] {
+  background: var(--status-not-started-bg);
+  border-color: #bdd1e7;
+  color: var(--status-not-started-ink);
+}
+
 .confidence-pill[data-level='1'] {
   background: var(--confidence-low-bg);
   border-color: #eea6b8;
@@ -1467,7 +1472,8 @@ button.danger {
 }
 
 .courses-page li:nth-child(odd) {
-  background: rgba(90, 150, 206, 0.05);
+  background: rgba(90, 150, 206, 0.08);
+  border-radius: 8px;
 }
 
 .courses-page .theme-row {
