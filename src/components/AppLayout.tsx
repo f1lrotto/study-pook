@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
 import { isConvexEnvMissingInProd } from '../lib/convexClient'
 import { PomodoroTimer } from './PomodoroTimer'
@@ -12,7 +12,6 @@ const navItems = [
 
 export function AppLayout() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const location = useLocation()
 
   // Close menu on navigation
   const handleNavClick = () => setMenuOpen(false)
